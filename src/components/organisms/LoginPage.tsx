@@ -53,7 +53,6 @@ const LoginPage = () => {
   const handleLogin = async () => {
     try {
       const response = await triggerUserLogin({ email, password }).unwrap();
-      // console.warn(response);
       console.warn('This is try block');
       console.warn(data);
       console.warn(response);

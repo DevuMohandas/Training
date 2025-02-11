@@ -11,13 +11,13 @@ const LoginPageTemplate = () => {
         height={38}
         className="mt-[2.93rem] ml-[2.75rem]"
       />
-      <div className="">
+      <div className="flex ">
         <div
-          className="bg-no-repeat bg-cover h-[45rem] w-[45rem]"
+          className=" bg-amber-200 bg-cover w-[40rem] h-[40rem] "
           style={{ backgroundImage: 'url("/assets/images/glass_bottle.png")' }}
         >
-          <div className="ml-[50rem]"><LoginPage /></div>
         </div>
+        <div className="bg-blue-300"><LoginPage /></div>
       </div>
     </div>
   );
