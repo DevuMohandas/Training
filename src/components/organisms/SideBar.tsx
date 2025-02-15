@@ -1,53 +1,41 @@
 'use client';
-import Image from 'next/image';
+import CategoryModeIcon from '@/assets/icons/category_mode.svg';
+import LiteModeIcon from '@/assets/icons/lite_mode.svg';
+import MagicModeIcon from '@/assets/icons/magic_mode.svg';
+import PromptModeIcon from '@/assets/icons/prompt_mode.svg';
+import TemplateModeIcon from '@/assets/icons/template_mode.svg';
 import { useState } from 'react';
+import Avatar from '../atoms/Avatar';
 import SideBarOption from '../molecules/SideBarOption';
-import UserProfile from '../molecules/UserProfile';
 
 const SideBar = () => {
-  const [selectedOption, setSelectedOption] = useState<string | null>(null);
+  const [activeIndex, setActiveIndex] = useState<string | null>(null);
   const options = [
-    { icon: '/assets/images/home-Regular.png', label: 'Inicio' },
-    { icon: '/assets/images/inbox-Regular.png', label: 'Bodega virtual' },
-    { icon: '/assets/images/star-Regular.png', label: 'Suscripción' },
-    { icon: '/assets/images/settings-Regular.png', label: 'Ajustes' },
+    { icon: <LiteModeIcon />, text: 'Lite Mode' },
+    { icon: <MagicModeIcon />, text: 'Magic Mode' },
+    { icon: <PromptModeIcon />, text: 'Prompt Mode' },
+    { icon: <TemplateModeIcon />, text: 'Template Mode' },
+    { icon: <CategoryModeIcon />, text: 'Category Mode' },
   ];
 
   return (
-    <div className="h-screen flex flex-col">
-      <div className="grow w-[20.28rem] shadow-[0_0_25px_5px_rgba(0,0,0,0.2)] m-10 rounded-[19px]">
-        <Image
-          src="/assets/images/Vineo_logo.png"
-          alt="vineo-logo"
-          width={182}
-          height={54.048}
-          className="ml-[71.05px] pt-[48px]"
-        />
-        <div className="flex flex-col mt-[2.81rem] gap-[1.31rem]">
-          {options.map(option => (
-            <SideBarOption
-              key={option.label}
-              icon={option.icon}
-              label={option.label}
-              isSelected={selectedOption === option.label}
-              onClick={() => setSelectedOption(option.label)}
-            />
-          ))}
-          <div className="mt-[10.40rem]">
-            <SideBarOption
-              key="Cerrar sesión"
-              icon="/assets/images/vector-Regular.png"
-              label="Cerrar sesión"
-              isSelected={selectedOption === 'Cerrar sesión'}
-              onClick={() => {
-                setSelectedOption('Cerrar sesión');
-              }}
-            />
-          </div>
-          <div className="mt-[14.12rem] ml-[35px]">
-            <UserProfile name="Carlos Bernabeu" coins={400} />
-          </div>
-        </div>
+    <div className="flex flex-col w-[4.56rem] h-[100%] pt-[20px] pb-[20px]
+    bg-gradient-to-br from-[#06090E] to-[#0C111A] border-1 border-[#1C212A]"
+    >
+      <div className="flex flex-col gap-8">
+        {options.map(option => (
+          <SideBarOption
+            key={option.text}
+            icon={option.icon}
+            text={option.text}
+            isActive={activeIndex === option.text}
+            onClick={() => setActiveIndex(option.text)}
+          />
+        ))}
+      </div>
+      <div className="flex justify-center mt-[18.56rem]">
+        {/* <Avatar name="Devu Mohandas" /> */}
+        <Avatar image="/assets/images/Elsa_DP.png" />
       </div>
     </div>
   );

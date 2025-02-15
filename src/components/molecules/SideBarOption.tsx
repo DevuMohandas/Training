@@ -1,31 +1,25 @@
-'use client';
-import Image from 'next/image';
-// import React, { useState } from 'react';
+import React from 'react';
 
-interface SideBarOptionProps {
-  icon: string; // Icon image path
-  label: string; // Text label
-  isSelected: boolean; // Whether the option is selected
-  onClick: () => void; // Click handler
+type SideBarOptionProps = {
+  icon: string | React.ReactNode;
+  text: string;
+  isActive?: boolean;
+  onClick?: () => void;
 };
 
-const SideBarOption: React.FC<SideBarOptionProps> = ({ icon, label, isSelected, onClick }) => { // means that SideBarOption is a functional component that expects SideBarOptionProps as its props.
+const SideBarOption: React.FC<SideBarOptionProps> = ({ icon, text, isActive, onClick }) => {
   return (
-    <div className="flex w-[19rem] h-[3.04rem]">
-      <button type="button" className={`flex justify-start w-full gap-[22.1px] cursor-pointer ${isSelected && 'shadow-lg rounded-[10px]'}`} onClick={onClick}>
-        <Image
-          src={icon}
-          alt="home"
-          width={38}
-          height={38}
-          className="ml-[2.5rem] cursor-pointer object-contain"
-        />
-        <span className={`mt-[0.5rem] text-[20px] ${isSelected ? 'font-[700] text-[#F78A79]' : 'font-[500] text-[#394A59]/80'}`}>
-          {label}
-        </span>
-      </button>
-      {isSelected && <div className="h-[3.04rem] w-[0.4rem] bg-[#F78A79] rounded-[4px]"></div>}
-    </div>
+    <button
+      type="button"
+      onClick={onClick}
+      className={`flex flex-col justify-center items-center w-[4.56rem] h-[6.490rem] gap-3 cursor-pointer 
+        ${isActive ? 'bg-[url("/assets/images/Frame_7808.svg")] border-2 border-[bg-gradient-to-r from-[#F28E4C] via-[#FF5A5E] via-[#C9649A] to-[#61A6F2]]' : 'none'}`}
+    >
+      <div className="flex justify-centerw-[1.68rem] h-[1.68rem]">
+        {icon}
+      </div>
+      <div className="w-[3.625rem] text-[0.875rem] text-[#ffffff] font-[500] leading-[22px] font-satoshi text-center">{text}</div>
+    </button>
   );
 };
 

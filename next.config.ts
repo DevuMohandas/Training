@@ -19,6 +19,15 @@ export default withSentryConfig(
       poweredByHeader: false,
       reactStrictMode: true,
       serverExternalPackages: ['@electric-sql/pglite'],
+
+      webpack(config) {
+        config.module.rules.push({
+          test: /\.svg$/,
+          use: ['@svgr/webpack'],
+        });
+
+        return config;
+      },
     }),
   ),
   {
