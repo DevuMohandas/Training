@@ -4,8 +4,9 @@ import React from 'react';
 
 type CustomButtonProps = {
   text?: string;
-  variant?: 'primary' | 'secondary';
+  variant?: 'primary' | 'secondary' | 'ternary';
   icon?: React.ReactNode | string;
+  // size?: 'small' | 'medium' | 'large';
   // onClick?: () => void;
 };
 
@@ -26,15 +27,18 @@ const CustomButton: React.FC<CustomButtonProps> = ({ text, variant, icon }) => {
       sx={{
         backgroundImage:
         variant === 'primary' ? 'linear-gradient(to right, #61A6F2, #C9649A, #FF5A5E, #F28E4C)' : 'none',
-        backgroundColor: variant === 'secondary' ? '#1C212A' : 'transparent',
+        backgroundColor: variant === 'secondary' ? '#1C212A' : '#1C212A',
         color: '#ffffff',
         fontFamily: 'satoshi, sans-serif',
         textTransform: 'none',
-        fontSize: '1rem',
+        fontSize: variant === 'primary' || 'secondary' ? '1rem' : '0.875rem',
         fontWeight: 700,
-        borderRadius: '6px',
-        padding: '0.625rem 1.625rem',
+        borderRadius: variant === 'ternary' ? '16px' : '6px',
+        padding:
+        variant === 'secondary' ? '0.625rem 1.625rem' : 'none',
         height: '2.5rem',
+        width:
+        variant === 'primary' ? '9.874rem' : 'none',
       }}
     >
       {text}

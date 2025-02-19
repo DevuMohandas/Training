@@ -10,7 +10,7 @@ const Avatar: React.FC<AvatarProps> = ({ name, image }) => {
   let initials;
 
   if (name) {
-    const nameParts = name.split(' '); // Removes extra spaces and empty values
+    const nameParts = name.split(' ');
     if (nameParts.length > 0) {
       initials = nameParts.length > 1
         ? `${nameParts[0]?.[0] ?? ''}${nameParts[nameParts.length - 1]?.[0] ?? ''}`
