@@ -1,9 +1,5 @@
 'use client';
-import CategoryModeIcon from '@/assets/icons/category_mode.svg';
-import LiteModeIcon from '@/assets/icons/lite_mode.svg';
-import MagicModeIcon from '@/assets/icons/magic_mode.svg';
-import PromptModeIcon from '@/assets/icons/prompt_mode.svg';
-import TemplateModeIcon from '@/assets/icons/template_mode.svg';
+import { CategoryModeIcon, LiteModeIcon, MagicModeIcon, PromptModeIcon, TemplateModeIcon } from '@/assets/SideBarIcons';
 import { useState } from 'react';
 import Avatar from '../atoms/Avatar';
 import SideBarOption from '../molecules/SideBarOption';
@@ -11,16 +7,16 @@ import SideBarOption from '../molecules/SideBarOption';
 const SideBar = () => {
   const [activeIndex, setActiveIndex] = useState<string | null>(null);
   const options = [
-    { icon: <LiteModeIcon />, text: 'Lite Mode' },
+    { icon: <LiteModeIcon className="w-[1.741rem] h-[1.740rem] color-icon" />, text: 'Lite Mode' },
     { icon: <MagicModeIcon />, text: 'Magic Mode' },
-    { icon: <PromptModeIcon />, text: 'Prompt Mode' },
-    { icon: <TemplateModeIcon />, text: 'Template Mode' },
-    { icon: <CategoryModeIcon />, text: 'Category Mode' },
+    { icon: <PromptModeIcon className="color-icon w-[2.312rem] h-[2.312rem]" />, text: 'Prompt Mode' },
+    { icon: <TemplateModeIcon className="color-icon" />, text: 'Template Mode' },
+    { icon: <CategoryModeIcon className="color-icon" />, text: 'Category Mode' },
   ];
 
   return (
     <div className="flex flex-col w-[4.56rem] h-[100%] pt-[20px] pb-[20px]
-    bg-gradient-to-br from-[#06090E] to-[#0C111A] border-1 border-[#1C212A]"
+    bg-special border-1 border-[#1C212A]"
     >
       <div className="flex flex-col gap-8">
         {options.map(option => (

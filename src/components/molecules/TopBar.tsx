@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { ICONS } from '../../constants/EnvogueaiConstants';
 import CustomButton from '../atoms/CustomButton';
 
 const TopBar = () => {
@@ -7,7 +8,7 @@ const TopBar = () => {
       <div>
         <Image
           alt="envogue-logo"
-          src="/assets/icons/envogue_logo.svg"
+          src={ICONS.ENVOGUE_LOGO}
           width={25}
           height={32}
           className="ml-[19px] mt-[19px] object-contain"
@@ -30,7 +31,7 @@ const TopBar = () => {
             className="m-1"
           />
         </div>
-        <div><CustomButton variant="primary" text="Upgrade" icon="/assets/icons/premiumcrown_icon.svg" /></div>
+        <div><CustomButton variant="primary" text="Upgrade" icon={ICONS.UPGRADE_LOGO} /></div>
       </div>
     </div>
   );

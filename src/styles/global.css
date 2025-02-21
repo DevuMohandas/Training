@@ -1,1 +1,61 @@
 @import 'tailwindcss';
+
+:root {
+  --icon-color: #ffffff;
+  --text-color: #ffffff;
+  --bg-special: linear-gradient(33.04deg, #06090e 40.12%, #0c111a 80%);
+}
+
+.multicolor {
+  --bg-color: #040508;
+  --card-bg: #10151f;
+  --card-border: #1c212a;
+  --text-color: #ffffff;
+  --text-secondary: #a6a6a6;
+  --bg-special: linear-gradient(33.04deg, #06090e 40.12%, #0c111e 80%);
+  --icon-color: #ffffff;
+}
+.bw {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --card-bg: #eae8ea;
+  --card-border: #1c212a;
+  --text-secondary: #a6a6a6ee;
+  --bg-special: #ffffff;
+  --icon-color: #000000;
+}
+
+.bg-body {
+  background-color: var(--bg-color);
+}
+
+.bg-card {
+  background-color: var(--card-bg);
+}
+
+.border-card {
+  border-color: var(--card-border);
+}
+
+.text-primary {
+  color: var(--text-color);
+}
+
+.color-icon {
+  color: var(--icon-color);
+}
+
+.bg-special {
+  background: var(--bg-special);
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+.bg-gradient-svg {
+  background-image: url('/assets/images/gradient-frame.svg');
+  /* background-size: cover; */
+  background-repeat: no-repeat;
+  /* background-position: center; */
+}

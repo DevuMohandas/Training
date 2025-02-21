@@ -1,15 +1,38 @@
-import Image from 'next/image';
+'use client';
+import { DownArrowIcon, RightArrowIcon } from '@/assets/OtherIcons';
+import { useState } from 'react';
 
 const NegativePromptSection = () => {
+  const [promptOpen, setPromptOpen] = useState(false);
+  const [inputValue, setInputValue] = useState('');
+
+  const handleInput = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setInputValue(e.target.value);
+    e.target.style.height = 'auto';
+    e.target.style.height = `${e.target.scrollHeight}px`;
+  };
+
   return (
-    <div className="flex  bg-[#10151F] border-[1px] py-[0.5rem] pl-[0.75rem]
+    <div className="flex flex-col bg-card border-[1px] py-[0.5rem] pl-[0.75rem]
       border-[#1C212A] rounded-[16px] max-w-[19.56rem]"
     >
-      <div className="flex justify-center items-center gap-2">
-        <button type="button">
-          <Image alt="vector" src="assets/icons/Vector.svg" width={7.13} height={12.97} />
+      <div className="flex gap-2">
+        <button type="button" onClick={() => setPromptOpen(!promptOpen)}>
+          {promptOpen ? <DownArrowIcon className="color-icon" /> : <RightArrowIcon className="color-icon" /> }
         </button>
-        <div className="text-satoshi text-[#ffffff] text-[1rem] font-bold">Negative Prompt</div>
+        <div className="text-satoshi text-primary text-[1rem] font-bold">Negative Prompt</div>
+      </div>
+      <div>
+        {promptOpen
+        && (
+          <textarea
+            value={inputValue}
+            onChange={handleInput}
+            className="bg-transparent border-none text-secondary font-satoshi text-[12px]
+            leading-[16px] w-full overflow-hidden resize-none outline-none font-bold p-2"
+            rows={1}
+          />
+        )}
       </div>
     </div>
   );
