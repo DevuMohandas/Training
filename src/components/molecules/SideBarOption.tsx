@@ -18,7 +18,7 @@ const SideBarOption: React.FC<SideBarOptionProps> = ({ icon, text, isActive, onC
       <div className="flex justify-center">
         {icon}
       </div>
-      <div className="w-[3.625rem] text-[0.875rem] text-primary font-[500] leading-[22px] font-satoshi text-center">{text}</div>
+      <div className="w-[3.625rem] text-[0.875rem] text-primary font-bold leading-[1.375rem] font-satoshi text-center">{text}</div>
     </button>
   );
 };

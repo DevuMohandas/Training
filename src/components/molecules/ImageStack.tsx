@@ -10,7 +10,7 @@ const ImageStack: React.FC<ImageStackProps> = ({ title, imageList }) => {
   return (
     <div className="flex flex-col gap-4">
       <div className="flex justify-center items-center gap-2">
-        <div className="border-[1px] border-[#1C212A] rounded-[4px]">
+        <div className="border-2 border-[#1C212A] rounded-[0.25rem]">
           <Image
             alt="image"
             src={imageList[0]}
@@ -18,10 +18,10 @@ const ImageStack: React.FC<ImageStackProps> = ({ title, imageList }) => {
             height={46}
           />
         </div>
-        <div className="font-satoshi font-normal md:text-[1rem] lg:text-[20px] text-primary">{title}</div>
+        <div className="font-satoshi font-normal md:text-[1rem] lg:text-[1.25rem] text-primary">{title}</div>
       </div>
 
-      <div className="grid gap-[16px] sm:grid-rows-2 sm:grid-cols-2 xl:grid-rows-1 xl:grid-cols-4">
+      <div className="grid gap-[1rem] sm:grid-rows-2 sm:grid-cols-2 xl:grid-rows-1 xl:grid-cols-4">
         {imageList.map((img, index) => (
           <Image
             key={index}

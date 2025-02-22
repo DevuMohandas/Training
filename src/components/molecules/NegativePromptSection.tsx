@@ -14,7 +14,7 @@ const NegativePromptSection = () => {
 
   return (
     <div className="flex flex-col bg-card border-[1px] py-[0.5rem] pl-[0.75rem]
-      border-[#1C212A] rounded-[16px] max-w-[19.56rem]"
+      border-[#1C212A] rounded-[1rem] max-w-[19.56rem]"
     >
       <div className="flex gap-2">
         <button type="button" onClick={() => setPromptOpen(!promptOpen)}>
@@ -28,8 +28,8 @@ const NegativePromptSection = () => {
           <textarea
             value={inputValue}
             onChange={handleInput}
-            className="bg-transparent border-none text-secondary font-satoshi text-[12px]
-            leading-[16px] w-full overflow-hidden resize-none outline-none font-bold p-2"
+            className="bg-transparent border-none text-secondary font-satoshi text-[0.75rem]
+            leading-[1rem] w-full overflow-hidden resize-none outline-none font-bold p-2"
             rows={1}
           />
         )}

@@ -13,11 +13,11 @@ export const DownArrowIcon = ({ className }: { className?: string }) => (
 export const RandomPromptIcon = ({ className }: { className?: string }) => (
   <svg width="15" height="17" viewBox="0 0 15 17" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
     <mask id="mask0_1_4512" maskUnits="userSpaceOnUse" x="0" y="0" width="15" height="17">
-      <path d="M6.96866 6.28817L5.28929 7.96755C4.98012 8.27672 4.98012 8.77797 5.28929 9.08714L6.96866 10.7665C7.27783 11.0757 7.77908 11.0757 8.08825 10.7665L9.76763 9.08714C10.0768 8.77797 10.0768 8.27672 9.76763 7.96755L8.08825 6.28817C7.77908 5.97901 7.27783 5.97901 6.96866 6.28817Z" fill="#555555" stroke="#A6A6A6" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M6.96866 6.28817L5.28929 7.96755C4.98012 8.27672 4.98012 8.77797 5.28929 9.08714L6.96866 10.7665C7.27783 11.0757 7.77908 11.0757 8.08825 10.7665L9.76763 9.08714C10.0768 8.77797 10.0768 8.27672 9.76763 7.96755L8.08825 6.28817C7.77908 5.97901 7.27783 5.97901 6.96866 6.28817Z" fill="currentcolor" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" />
       <path d="M13.8812 5.33333C12.7154 2.98723 10.2949 1.375 7.49676 1.375C4.69941 1.375 2.33272 2.98723 1.16699 5.33333M1.16699 5.33333V2.16667M1.16699 5.33333H3.85074M1.16699 11.6667C2.33272 14.0128 4.75364 15.625 7.55139 15.625C10.3487 15.625 12.7154 14.0128 13.8812 11.6667M13.8812 11.6667V14.8333M13.8812 11.6667H11.1974" stroke="currentcolor" stroke-linecap="round" />
     </mask>
     <g mask="url(#mask0_1_4512)">
-      <path d="M-1.5 -0.5H16.5V17.5H-1.5V-0.5Z" fill="white" stroke="#A6A6A6" />
+      <path d="M-1.5 -0.5H16.5V17.5H-1.5V-0.5Z" fill="currentcolor" stroke="currentcolor" />
     </g>
   </svg>
 );

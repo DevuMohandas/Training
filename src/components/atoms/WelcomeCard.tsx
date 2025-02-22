@@ -5,10 +5,14 @@ type WelcomeCardProps = {
 const WelcomeCard: React.FC<WelcomeCardProps> = ({ text }) => {
   return (
     <div className="flex justify-center w-full bg-gradient-to-r from-[#F28E4C]
-     via-[#FF5A5E] via-[#C9649A] to-[#61A6F2] py-[3.43rem]"
+     via-[#FF5A5E] via-[#C9649A] to-[#61A6F2]"
     >
-      <div className="text-[20px] max-w-[300px] sm:text-[30px] sm:max-w-[400px] md:text-[36px] md:max-w-[500px] text-center font-bold text-[#ffffff]">
-        {text}
+      <div className=" w-full flex justify-center bg-gradient-to-t from-[rgba(4,5,8,0.9)] via-[rgba(4,5,8,0.5)] to-[rgba(4,5,8,0)]">
+        <div className="text-[1.25rem] mt-[3.56rem] mb-[5rem] sm:mb-[6.93rem] max-w-[18.75rem] sm:text-[1.875rem] sm:max-w-[25rem] md:text-[2.25rem]
+        md:max-w-[31.25rem] text-center font-bold text-[#ffffff]"
+        >
+          {text}
+        </div>
       </div>
     </div>
   );

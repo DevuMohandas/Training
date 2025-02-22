@@ -9,7 +9,7 @@ const LiteModeTopBar = () => {
         {/* <Image alt="envogue-logo" src={ICONS.ENVOGUE_LOGO} width={30} height={34} /> */}
         <EnvogueLogoIcon className="color-icon" />
       </div>
-      <div className="flex items-center gap-[13px]">
+      <div className="flex items-center gap-[0.813rem]">
         <div><Diamonds diamonds={50} /></div>
         <div><ThemeToggleButton /></div>
       </div>

@@ -1,12 +1,7 @@
 @import 'tailwindcss';
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
 
 :root {
-  --icon-color: #ffffff;
-  --text-color: #ffffff;
-  --bg-special: linear-gradient(33.04deg, #06090e 40.12%, #0c111a 80%);
-}
-
-.multicolor {
   --bg-color: #040508;
   --card-bg: #10151f;
   --card-border: #1c212a;
@@ -15,6 +10,7 @@
   --bg-special: linear-gradient(33.04deg, #06090e 40.12%, #0c111e 80%);
   --icon-color: #ffffff;
 }
+
 .bw {
   --bg-color: #ffffff;
   --text-color: #000000;
@@ -55,7 +51,14 @@
 
 .bg-gradient-svg {
   background-image: url('/assets/images/gradient-frame.svg');
-  /* background-size: cover; */
   background-repeat: no-repeat;
-  /* background-position: center; */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

@@ -6,8 +6,6 @@ type CustomButtonProps = {
   text?: string;
   variant?: 'primary' | 'secondary' | 'ternary';
   icon?: React.ReactNode | string;
-  // size?: 'small' | 'medium' | 'large';
-  // onClick?: () => void;
 };
 
 const CustomButton: React.FC<CustomButtonProps> = ({ text, variant, icon }) => {

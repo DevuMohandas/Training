@@ -4,9 +4,9 @@ import CustomButton from '../atoms/CustomButton';
 const UpgradeNoticeCard = () => {
   return (
     <div
-      className="flex p-[1px] rounded-[16px]"
+      className="flex p-[1px] rounded-[1rem]"
     >
-      <div className="flex flex-col justify-center items-center gap-[13px] w-[100%] pt-[12px] pb-[19px] rounded-[16px] bg-gradient-svg">
+      <div className="flex flex-col justify-center items-center gap-[0.813rem] w-[100%] pt-[0.75rem] pb-[1.188rem] rounded-[1rem] bg-gradient-svg">
         <div>
           <Image
             alt="icon"
@@ -15,7 +15,7 @@ const UpgradeNoticeCard = () => {
             height={24}
           />
         </div>
-        <div className="text-satoshi text-[14px] text-primary font-700">
+        <div className="text-satoshi text-[0.875rem] text-primary font-700">
           Unlock Magic AI Features
         </div>
         <div>
