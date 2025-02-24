@@ -11,7 +11,7 @@ const EnvogueDashboard = () => {
       <div className="flex">
         <div><SideBar /></div>
         <div className="flex flex-col w-[100%] md:px-[1.125rem]">
-          <div><WelcomeCard text="Craft Your Dream Jewelry: Design the Perfect Piece" /></div>
+          <div><WelcomeCard text="Craft Your Dream Jewellery: Design the Perfect Piece" /></div>
           <div className="-mt-10 flex justify-center w-full">
             <div className=""><CenterNavBar /></div>
           </div>

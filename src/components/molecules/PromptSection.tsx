@@ -1,7 +1,6 @@
 'use client';
 import { DownArrowIcon, RandomPromptIcon, RightArrowIcon } from '@/assets/OtherIcons';
 import { PromptModeIcon } from '@/assets/SideBarIcons';
-// import Image from 'next/image';
 import { useState } from 'react';
 
 const PromptSection = () => {
@@ -16,7 +15,7 @@ const PromptSection = () => {
 
   return (
     <div className="flex flex-col bg-card border-[1px] px-[0.75rem] py-[0.5rem]
-    border-[#1C212A] rounded-[1rem] max-w-[19.56rem]"
+    card-border rounded-[1rem] max-w-[19.56rem]"
     >
       <div className="flex justify-between w-full">
         <div className="flex gap-2">
@@ -26,8 +25,7 @@ const PromptSection = () => {
           <div className="text-satoshi text-primary text-[1rem] font-bold">Prompt</div>
         </div>
         <div className="flex justify-center items-center gap-4">
-          {/* <div><Image alt="v1" src="assets/icons/prompt-icon1.svg" width={19} height={19} /></div> */}
-          <div><RandomPromptIcon className="color-icon" /></div>
+          <div><RandomPromptIcon className="color-icon-secondary" /></div>
           <div><PromptModeIcon className="color-icon w-[1.188rem] h-[1.188rem]" /></div>
         </div>
       </div>

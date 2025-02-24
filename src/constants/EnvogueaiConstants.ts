@@ -18,4 +18,5 @@ export const ICONS = {
   DIAMOND_ICON: 'assets/icons/diamonds.svg',
   ENVOGUE_LOGO: 'assets/icons/envogue_logo.svg',
   UPGRADE_LOGO: 'assets/icons/premiumcrown_icon.svg',
+  SPARKLE_ICON: 'assets/icons/sparkle-vector.svg',
 };

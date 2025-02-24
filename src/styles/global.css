@@ -1,5 +1,5 @@
 @import 'tailwindcss';
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap');
 
 :root {
   --bg-color: #040508;
@@ -9,16 +9,26 @@
   --text-secondary: #a6a6a6;
   --bg-special: linear-gradient(33.04deg, #06090e 40.12%, #0c111e 80%);
   --icon-color: #ffffff;
+  --card-bg-special: url('/assets/images/gradient-background.svg');
+  --icon-secondary: #ffffff;
+  --ternary-btn-color: #1c212a;
 }
 
 .bw {
   --bg-color: #ffffff;
   --text-color: #000000;
   --card-bg: #eae8ea;
-  --card-border: #1c212a;
-  --text-secondary: #a6a6a6ee;
+  --card-border: #c5c4c4;
+  --text-secondary: #8c8a8c;
   --bg-special: #ffffff;
   --icon-color: #000000;
+  --card-bg-special: #eae8ea;
+  --icon-secondary: #8c8a8c;
+  --ternary-btn-color: #c5c4c4;
+}
+
+.font-merriweather {
+  font-family: 'Merriweather', serif;
 }
 
 .bg-body {
@@ -29,8 +39,12 @@
   background-color: var(--card-bg);
 }
 
-.border-card {
+.card-border {
   border-color: var(--card-border);
+}
+
+.ternary-btn-color {
+  background-color: var(--ternary-btn-color);
 }
 
 .text-primary {
@@ -39,6 +53,10 @@
 
 .color-icon {
   color: var(--icon-color);
+}
+
+.color-icon-secondary {
+  color: var(--icon-secondary);
 }
 
 .bg-special {
@@ -50,8 +68,18 @@
 }
 
 .bg-gradient-svg {
-  background-image: url('/assets/images/gradient-frame.svg');
+  background-image: url('/assets/images/gradient-background.svg');
   background-repeat: no-repeat;
+}
+
+.gradient-border {
+  border: 1px solid;
+  background-color: linear-gradient(90deg, #61a6f2 0%, #c9649a 32.71%, #ff5a5e 68.67%, #f28e4c 100%);
+  border-image-slice: 1;
+}
+
+.card-bg-special {
+  background: var(--card-bg-special);
 }
 
 .scrollbar-hide::-webkit-scrollbar {
@@ -61,4 +89,14 @@
 .scrollbar-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, #61a6f2, #c9649a, #ff5a5e, #f28e4c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bg-gradient-main {
+  background: linear-gradient(90deg, #f28e4c 10%, #ff5a5e 32.71%, #c9649a 68.67%, #61a6f2 100%);
 }

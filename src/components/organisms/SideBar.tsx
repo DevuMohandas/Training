@@ -8,7 +8,7 @@ const SideBar = () => {
   const [activeIndex, setActiveIndex] = useState<string | null>(null);
   const options = [
     { icon: <LiteModeIcon className="w-[1.741rem] h-[1.740rem] color-icon" />, text: 'Lite Mode' },
-    { icon: <MagicModeIcon />, text: 'Magic Mode' },
+    { icon: <MagicModeIcon />, text: 'Magic Mode', customClassName: 'text-gradient' },
     { icon: <PromptModeIcon className="color-icon w-[2.312rem] h-[2.312rem]" />, text: 'Prompt Mode' },
     { icon: <TemplateModeIcon className="color-icon" />, text: 'Template Mode' },
     { icon: <CategoryModeIcon className="color-icon" />, text: 'Category Mode' },
@@ -26,6 +26,7 @@ const SideBar = () => {
             text={option.text}
             isActive={activeIndex === option.text}
             onClick={() => setActiveIndex(option.text)}
+            customClassName={option.customClassName}
           />
         ))}
       </div>

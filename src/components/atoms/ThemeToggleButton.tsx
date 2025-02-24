@@ -22,9 +22,9 @@ const ThemeToggleButton = () => {
     <button
       type="button"
       onClick={toggleTheme}
-      className="flex justify-center w-[2rem] h-[1.875rem] rounded-[0.625rem] bg-card"
+      className="flex justify-center items-center w-[2rem] h-[1.875rem] rounded-[0.625rem] bg-card cursor-pointer"
     >
-      <div className="m-1"><ThemeModeIcon className="color-icon w-[1.5rem] h-[1.5rem]" /></div>
+      <div><ThemeModeIcon className="color-icon w-[1.125rem] h-[1.125rem]" /></div>
     </button>
   );
 };

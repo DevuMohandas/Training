@@ -18,7 +18,7 @@ const ImageThumpnail: React.FC<ImageThumpnailProps> = ({ image, description }) =
           className="w-full h-full"
         />
       </div>
-      <div className="flex justify-center items-center border-2 border-[#1C212A]">
+      <div className="flex justify-center items-center border-2 border-[#1C212A] px-3 py-0.5">
         <div className="text-[#FFFFFF] text-[0.85rem] sm:text-[0.75rem] font-satoshi font-[200] leading-[1rem]">{description}</div>
       </div>
     </div>
