@@ -2,20 +2,17 @@ import React from 'react';
 import CustomButton from '../atoms/CustomButton';
 import ImageThumpnail from '../molecules/ImageThumpnail';
 
-type RowPostProps = {
-  welcomeLine: string;
+type Product = {
+  image: string;
+  description: string;
 };
 
-const RowPost: React.FC<RowPostProps> = ({ welcomeLine }) => {
-  const productList = [
-    { image: '/assets/images/Jewellery-image.png', description: 'Craft Your Dream Jewelry: Design the Perfect Piece' },
-    { image: '/assets/images/jewellery-image1.png', description: 'Craft Your Dream Jewelry: Design the Perfect Piece' },
-    { image: '/assets/images/jewellery-image2.png', description: 'Craft Your Dream Jewelry: Design the Perfect Piece' },
-    { image: '/assets/images/jewellery-image.png', description: 'Craft Your Dream Jewelry: Design the Perfect Piece' },
-    { image: '/assets/images/jewellery-image1.png', description: 'Craft Your Dream Jewelry: Design the Perfect Piece' },
+type RowPostProps = {
+  welcomeLine: string;
+  productList: Product[]; // an array of Product objects
+};
 
-  ];
-
+const RowPost: React.FC<RowPostProps> = ({ welcomeLine, productList }) => {
   return (
     <div className="flex flex-col gap-3 w-full">
       <div className="flex justify-between">

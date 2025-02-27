@@ -17,7 +17,7 @@ const CenterNavBar = () => {
 
   return (
     <div className="flex items-center bg-[linear-gradient(33.04deg,#06090E_40.12%,#0C111A_80%)]
-    border-2 border-[#10151F] rounded-[53px] w-[70vw] sm:w-[80vw] md:w-[85vw] lg:w-fit overflow-x-auto overflow-y-hidden
+    border-2 border-[#10151F] rounded-[3.313rem] w-[70vw] sm:w-[80vw] md:w-fit overflow-x-auto overflow-y-hidden
     shadow-[0px_0px_28px_4px_#282B48C2,0px_0px_5.8px_0px_#00000040_inset] scrollbar-hide "
     >
       {optionsList.map(option => (

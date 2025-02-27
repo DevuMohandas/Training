@@ -6,11 +6,14 @@ type CustomButtonProps = {
   text?: string;
   variant?: 'primary' | 'secondary' | 'ternary';
   icon?: React.ReactNode | string;
+  className?: string;
+  onClick: () => void;
 };
 
-const CustomButton: React.FC<CustomButtonProps> = ({ text, variant, icon }) => {
+const CustomButton: React.FC<CustomButtonProps> = ({ text, variant, icon, className, onClick }) => {
   return (
     <Button
+      className={className}
       variant="contained"
       startIcon={
         icon
@@ -31,13 +34,14 @@ const CustomButton: React.FC<CustomButtonProps> = ({ text, variant, icon }) => {
         textTransform: 'none',
         fontSize: variant === 'primary' || 'secondary' ? '1rem' : '0.875rem',
         fontWeight: 700,
-        borderRadius: variant === 'ternary' ? '16px' : '6px',
+        borderRadius: variant === 'ternary' ? '1rem' : '0.375rem',
         padding:
         variant === 'secondary' ? '0.625rem 1.625rem' : 'none',
         height: '2.5rem',
         width:
-        variant === 'primary' ? '9.874rem' : 'none',
+        variant === 'primary' ? '9.874rem' : variant === 'ternary' ? '8.875rem' : 'auto',
       }}
+      onClick={onClick}
     >
       {text}
     </Button>

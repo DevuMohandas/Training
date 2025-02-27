@@ -12,6 +12,7 @@
   --card-bg-special: url('/assets/images/gradient-background.svg');
   --icon-secondary: #ffffff;
   --ternary-btn-color: #1c212a;
+  --button-secondary-color: #1c212a;
 }
 
 .bw {
@@ -25,6 +26,7 @@
   --card-bg-special: #eae8ea;
   --icon-secondary: #8c8a8c;
   --ternary-btn-color: #c5c4c4;
+  --button-secondary-color: #c3c2c1;
 }
 
 .font-merriweather {
@@ -99,4 +101,8 @@
 
 .bg-gradient-main {
   background: linear-gradient(90deg, #f28e4c 10%, #ff5a5e 32.71%, #c9649a 68.67%, #61a6f2 100%);
+}
+
+.button-secondary {
+  background-color: var(--button-secondary-color);
 }

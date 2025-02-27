@@ -1,0 +1,10 @@
+[
+  { "id": 1, "option": "Golden Ring" },
+  { "id": 2, "option": "Silver Ring" },
+  { "id": 3, "option": "Bronze Ring" },
+  { "id": 4, "option": "Platinum Ring" },
+  { "id": 5, "option": "Diamond Ring" },
+  { "id": 6, "option": "Ruby Ring" },
+  { "id": 7, "option": "Sapphire Ring" },
+  { "id": 8, "option": "Emerald Ring" }
+]
