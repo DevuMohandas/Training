@@ -1,4 +1,4 @@
-import EnvogueLitemode from '@/components/template/EnvogueLitemode';
+import EnvogueLitemode from '@/components/pages/EnvogueLitemode';
 
 const page = () => {
   return (

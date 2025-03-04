@@ -30,7 +30,7 @@ const SideBar = () => {
           />
         ))}
       </div>
-      <div className="flex justify-center mt-[18.56rem]">
+      <div className="flex justify-center mt-[15.56rem]">
         {/* <Avatar name="Devu Mohandas" /> */}
         <Avatar image="/assets/images/Elsa_DP.png" />
       </div>

@@ -1,4 +1,4 @@
-import EnvogueDashboard from '@/components/template/EnvogueDashboard';
+import EnvogueDashboard from '@/components/pages/EnvogueDashboard';
 
 const page = () => {
   return (

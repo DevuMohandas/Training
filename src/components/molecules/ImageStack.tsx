@@ -23,14 +23,16 @@ const ImageStack: React.FC<ImageStackProps> = ({ title, imageList }) => {
 
       <div className="grid gap-[1rem] sm:grid-rows-2 sm:grid-cols-2 xl:grid-rows-1 xl:grid-cols-4">
         {imageList.map((img, index) => (
-          <Image
-            key={index}
-            src={img}
-            alt="image"
-            width={219}
-            height={219}
-            layout="responsive"
-          />
+          img && (
+            <Image
+              key={index}
+              src={img}
+              alt="image"
+              width={219}
+              height={219}
+              layout="responsive"
+            />
+          )
         ))}
       </div>
     </div>

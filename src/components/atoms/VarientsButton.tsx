@@ -1,15 +1,26 @@
 'use client';
 import { useState } from 'react';
 
-const VarientsButton = () => {
+type VarientsButtonProps = {
+  onVariantSelect: (variant: number | null) => void;
+};
+
+const VarientsButton: React.FC<VarientsButtonProps> = ({ onVariantSelect }) => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const variants = [1, 2, 3, 4];
+
+  const handleClick = (num: number) => {
+    const newActiveIndex = num === activeIndex ? null : num;
+    setActiveIndex(newActiveIndex);
+    onVariantSelect(newActiveIndex);
+  };
+
   return (
     <div className="flex gap-[0.625rem] w-[100%]">
       {variants.map(num => (
         <button
           type="button"
-          onClick={() => setActiveIndex(num === activeIndex ? null : num)}
+          onClick={() => handleClick(num)}
           key={num}
           className={`flex justify-center items-center text-primary text-[1rem] font-bold font-satoshi cursor-pointer
           rounded-[0.188rem] bg-card h-[3.75rem] w-[100%] p-0.5 
