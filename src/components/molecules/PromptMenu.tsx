@@ -6,9 +6,10 @@ type PromptMenuProps = {
   isMenuOpen: boolean;
   toggleMenu: () => void;
   onSelectPrompt: (prompt: string) => void;
+  onRemovePrompt: (prompt: string) => void;
 };
 
-const PromptMenu: React.FC<PromptMenuProps> = ({ isMenuOpen, toggleMenu, onSelectPrompt }) => {
+const PromptMenu: React.FC<PromptMenuProps> = ({ isMenuOpen, toggleMenu, onSelectPrompt, onRemovePrompt }) => {
   const options = [
     { id: 1, option: 'Golden Ring' },
     { id: 2, option: 'Silver Ring' },
@@ -18,16 +19,6 @@ const PromptMenu: React.FC<PromptMenuProps> = ({ isMenuOpen, toggleMenu, onSelec
     { id: 6, option: 'Ruby Ring' },
     { id: 7, option: 'Sapphire Ring' },
     { id: 8, option: 'Emerald Ring' },
-    { id: 9, option: 'Golden Ring' },
-    { id: 10, option: 'Silver Ring' },
-    { id: 11, option: 'Bronze Ring' },
-    { id: 12, option: 'Platinum Ring' },
-    { id: 13, option: 'Diamond Ring' },
-    { id: 14, option: 'Ruby Ring' },
-    { id: 15, option: 'Sapphire Ring' },
-    { id: 16, option: 'Emerald Ring' },
-    { id: 17, option: 'Golden Ring' },
-    { id: 18, option: 'Silver Ring' },
   ];
 
   return (
@@ -36,10 +27,10 @@ const PromptMenu: React.FC<PromptMenuProps> = ({ isMenuOpen, toggleMenu, onSelec
         {isMenuOpen && (
           <motion.div
             key="prompt-menu"
-            initial={{ scaleX: 0 }} // Start fully collapsed (hidden)
-            animate={{ scaleX: 1 }} // Expand to full width
-            exit={{ scaleX: 0 }} // Collapse when closing
-            transition={{ type: 'tween', duration: 0.6, ease: 'easeInOut' }} // Smooth animation
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            exit={{ scaleX: 0 }}
+            transition={{ type: 'tween', duration: 0.6, ease: 'easeInOut' }}
             style={{ boxShadow: '0px 0px 9.8px 0px #37353540', transformOrigin: 'left' }}
             className="flex p-[1.416rem] bg-special border border-[#1C212A] rounded-[0.625rem] w-[15rem] md:w-[17.687rem] h-[100%]"
           >
@@ -53,6 +44,7 @@ const PromptMenu: React.FC<PromptMenuProps> = ({ isMenuOpen, toggleMenu, onSelec
                     key={option.id}
                     option={option.option}
                     onSelect={onSelectPrompt}
+                    onRemove={onRemovePrompt}
                   />
                 ))}
               </div>

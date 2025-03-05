@@ -17,7 +17,7 @@ const ImageLoaderSection: React.FC<ImageLoaderSectionProps> = ({ variants, setLa
   const displayedImages = imageList.slice(0, variants || 0);
   useEffect(() => {
     setLastGeneratedImages(displayedImages.map(img => img.src));
-  }, [variants, setLastGeneratedImages]);
+  }, [variants]);
 
   return (
     <div key={variants} className="grid grid-cols-1 md:grid-cols-2 md:grid-rows-2 gap-[1.5rem]">
@@ -29,10 +29,3 @@ const ImageLoaderSection: React.FC<ImageLoaderSectionProps> = ({ variants, setLa
 };
 
 export default ImageLoaderSection;
-
-// const [displayedImages, setDisplayedImages] = useState(imageList.slice(0, variants || 0));
-
-//   useEffect(() => {
-//     // Update images when variants change
-//     setDisplayedImages(imageList.slice(0, variants || 0));
-//   }, [variants]);

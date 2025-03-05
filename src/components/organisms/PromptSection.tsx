@@ -1,15 +1,16 @@
 'use client';
 import { DownArrowIcon, RandomPromptIcon, RightArrowIcon } from '@/assets/OtherIcons';
 import { PromptModeIcon } from '@/assets/SideBarIcons';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import RandomPromptWithTooltip from '../molecules/RandomPromptWithTooltip';
 
 type promptSectionProps = {
   toggleMenu: () => void;
   selectedPrompt: string | null;
+  removedPrompt: string | null;
 };
 
-const PromptSection: React.FC<promptSectionProps> = ({ toggleMenu, selectedPrompt }) => {
+const PromptSection: React.FC<promptSectionProps> = ({ toggleMenu, selectedPrompt, removedPrompt }) => {
   const [promptOpen, setPromptOpen] = useState(false);
   const [promptValue, setPromptValue] = useState('');
 
@@ -26,9 +27,23 @@ const PromptSection: React.FC<promptSectionProps> = ({ toggleMenu, selectedPromp
     setPromptOpen(true);
   };
 
-  if (selectedPrompt) {
-    handlePromptSelection(selectedPrompt);
-  }
+  useEffect(() => {
+    if (selectedPrompt) {
+      handlePromptSelection(selectedPrompt);
+    }
+  }, [selectedPrompt]);
+
+  useEffect(() => {
+    if (removedPrompt && promptValue.includes(removedPrompt)) {
+      setPromptValue((prevValue) => {
+        const updatedPrompts = prevValue
+          .split(', ')
+          .filter(prompt => prompt !== removedPrompt)
+          .join(', ');
+        return updatedPrompts;
+      });
+    }
+  }, [removedPrompt]);
 
   const handleInput = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setPromptValue(e.target.value);

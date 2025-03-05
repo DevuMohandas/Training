@@ -16,6 +16,7 @@ const ActionPanel: React.FC<ActionPanelProps> = ({ onVariantSelect }) => {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const [selectedVariant, setSelectedVariant] = useState<number | null>(null);
   const [selectedPrompt, setSelectedPrompt] = useState<string | null>(null);
+  const [removedPrompt, setRemovedPrompt] = useState<string | null>(null);
 
   const toggleMenu = () => {
     setMenuOpen(prev => !prev);
@@ -39,7 +40,7 @@ const ActionPanel: React.FC<ActionPanelProps> = ({ onVariantSelect }) => {
         <UpgradeNoticeCard />
         <div className="text-[1rem] text-primary font-satoshi font-bold">Upload Image</div>
         <FileUploadCard />
-        <PromptSection toggleMenu={toggleMenu} selectedPrompt={selectedPrompt} />
+        <PromptSection toggleMenu={toggleMenu} selectedPrompt={selectedPrompt} removedPrompt={removedPrompt} />
         <NegativePromptSection />
         <div className="text-[1rem] text-primary font-satoshi font-bold">Variants</div>
         <div className="flex justify-center">
@@ -49,7 +50,7 @@ const ActionPanel: React.FC<ActionPanelProps> = ({ onVariantSelect }) => {
         <div className="text-[0.875rem] text-[#A6A6A6] font-satoshi font-bold text-center">This will use 12 Jewels</div>
       </div>
       <div className="absolute top-0 right-[-240px] md:right-[-280px] z-1">
-        {isMenuOpen && <PromptMenu isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} onSelectPrompt={setSelectedPrompt} />}
+        {isMenuOpen && <PromptMenu isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} onSelectPrompt={setSelectedPrompt} onRemovePrompt={setRemovedPrompt} />}
       </div>
     </div>
   );
