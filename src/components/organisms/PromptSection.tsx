@@ -43,7 +43,7 @@ const PromptSection: React.FC<promptSectionProps> = ({ toggleMenu, selectedPromp
         return updatedPrompts;
       });
     }
-  }, [removedPrompt]);
+  }, [removedPrompt, promptValue]);
 
   const handleInput = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setPromptValue(e.target.value);
@@ -63,12 +63,12 @@ const PromptSection: React.FC<promptSectionProps> = ({ toggleMenu, selectedPromp
   };
 
   return (
-    <div className="flex flex-col bg-card border-[1px] px-[0.75rem] py-[0.5rem]
-    card-border rounded-[1rem] max-w-[19.56rem]"
+    <div className="flex flex-col justify-center bg-card border-[1px] px-[0.75rem] py-[0.5rem]
+    card-border rounded-[1rem] h-[100%]"
     >
       <div className="flex justify-between w-full">
         <div className="flex gap-2">
-          <button type="button" className="cursor-pointer" onClick={() => setPromptOpen(prev => !prev)}>
+          <button type="button" onClick={() => setPromptOpen(prev => !prev)}>
             {promptOpen ? <DownArrowIcon className="color-icon" /> : <RightArrowIcon className="color-icon" /> }
           </button>
           <div className="text-satoshi text-primary text-[1rem] font-bold">Prompt</div>
@@ -103,3 +103,5 @@ const PromptSection: React.FC<promptSectionProps> = ({ toggleMenu, selectedPromp
 };
 
 export default PromptSection;
+
+// max-w-[19.56rem]

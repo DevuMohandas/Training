@@ -13,8 +13,8 @@ const NegativePromptSection = () => {
   };
 
   return (
-    <div className="flex flex-col bg-card border-[1px] py-[0.5rem] pl-[0.75rem]
-      card-border rounded-[1rem] max-w-[19.56rem]"
+    <div className="flex flex-col justify-center bg-card border-[1px] py-[0.5rem] pl-[0.75rem]
+      card-border rounded-[1rem] h-[100%]"
     >
       <div className="flex gap-2">
         <button type="button" onClick={() => setPromptOpen(!promptOpen)}>
@@ -39,3 +39,5 @@ const NegativePromptSection = () => {
 };
 
 export default NegativePromptSection;
+
+// max-w-[19.56rem]

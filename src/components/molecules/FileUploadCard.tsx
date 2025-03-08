@@ -30,8 +30,8 @@ const FileUploadCard = () => {
   };
 
   return (
-    <div className="flex justify-center items-center max-w-[19.563rem] h-[12.125rem] gap-[0.75rem] border-2 border-dashed
-     card-border bg-card rounded-[1rem]"
+    <div className="flex justify-center items-center gap-[0.75rem] border-2 border-dashed
+     card-border bg-card rounded-[1rem] py-4 px-1"
     >
       {preview
         ? (
@@ -40,7 +40,7 @@ const FileUploadCard = () => {
             </div>
           )
         : (
-            <div className="flex flex-col gap-[0.75rem]">
+            <div className="flex flex-col gap-[0.75rem] bg-amber-200">
               <input
                 type="file"
                 ref={FileInputRef}
@@ -48,7 +48,7 @@ const FileUploadCard = () => {
                 onChange={handleFileChange}
                 accept="image/*"
               />
-              <div className="text-center"><CustomButton variant="ternary" text="Upload" onClick={handleUploadClick} /></div>
+              <div className="flex justify-center px-2"><CustomButton variant="ternary" text="Upload" onClick={handleUploadClick} className="w-full" /></div>
               <div className="text-center text-[0.875rem] text-secondary font-bold">Supports JPG and PNG up to 5MB</div>
             </div>
           )}
@@ -58,4 +58,5 @@ const FileUploadCard = () => {
 
 export default FileUploadCard;
 
-// py-[3.688rem]
+// py-[3.688rem] max-w-[19.563rem] h-[12.125rem]
+// <div className="text-center text-[0.875rem] text-secondary font-bold">Supports JPG and PNG up to 5MB</div>

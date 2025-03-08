@@ -15,10 +15,10 @@ const SideBar = () => {
   ];
 
   return (
-    <div className="flex flex-col w-[4.56rem] h-[100%] pt-[20px] pb-[20px]
-    bg-special border-1 border-[#1C212A]"
+    <div className="flex flex-col w-[4.56rem] pt-[20px] pb-[20px]
+    bg-special border-1 border-[#1C212A] min-h-screen"
     >
-      <div className="flex flex-col gap-8">
+      <div className="flex flex-col">
         {options.map(option => (
           <SideBarOption
             key={option.text}
@@ -30,7 +30,7 @@ const SideBar = () => {
           />
         ))}
       </div>
-      <div className="flex justify-center mt-[15.56rem]">
+      <div className="absolute bottom-0 left-3 flex justify-center">
         {/* <Avatar name="Devu Mohandas" /> */}
         <Avatar image="/assets/images/Elsa_DP.png" />
       </div>

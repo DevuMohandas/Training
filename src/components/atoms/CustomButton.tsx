@@ -4,10 +4,10 @@ import React from 'react';
 
 type CustomButtonProps = {
   text?: string;
-  variant?: 'primary' | 'secondary' | 'ternary';
+  variant?: 'primary' | 'secondary' | 'ternary' | 'outlined';
   icon?: React.ReactNode | string;
   className?: string;
-  onClick: () => void;
+  onClick?: () => void;
 };
 
 const CustomButton: React.FC<CustomButtonProps> = ({ text, variant, icon, className, onClick }) => {
@@ -38,8 +38,8 @@ const CustomButton: React.FC<CustomButtonProps> = ({ text, variant, icon, classN
         padding:
         variant === 'secondary' ? '0.625rem 1.625rem' : 'none',
         height: '2.5rem',
-        width:
-        variant === 'primary' ? '9.874rem' : variant === 'ternary' ? '8.875rem' : 'auto',
+        // width:
+        // variant === 'primary' ? '9.874rem' : variant === 'ternary' ? '8.875rem' : 'auto',
       }}
       onClick={onClick}
     >

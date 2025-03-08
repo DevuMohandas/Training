@@ -10,9 +10,9 @@ type DashboardTemplateProps = {
 
 const DashboardTemplate: React.FC<DashboardTemplateProps> = ({ topBar, sideBar, welcomeCard, centerNavbar, rowPost }) => {
   return (
-    <div className="bg-[#040508]">
+    <div className="bg-[#040508] min-h-screen">
       <div>{topBar}</div>
-      <div className="flex">
+      <div className="flex flex-grow bg-amber-100">
         <div>{sideBar}</div>
         <div className="flex flex-col w-[100%] md:px-[1.125rem]">
           <div>{welcomeCard}</div>

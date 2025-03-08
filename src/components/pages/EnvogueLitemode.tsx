@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import LiteModeTopBar from '../molecules/LiteModeTopBar';
 import ActionPanel from '../organisms/ActionPanel';
+import EditPanel from '../organisms/EditPanel';
 import MainContent from '../organisms/MainContent';
 import SideBar from '../organisms/SideBar';
 import LitemodeTemplate from '../template/LitemodeTemplate';
@@ -13,12 +14,16 @@ const EnvogueLitemode = () => {
     setSelectedVariant(variant);
   };
 
+  const [editMode, setEditMode] = useState(false);
+
   return (
     <LitemodeTemplate
       topBar={<LiteModeTopBar />}
       sideBar={<SideBar />}
       actionPanel={<ActionPanel onVariantSelect={handleVariantSelection} />}
-      mainContent={<MainContent variant={selectedVariant} setVariant={setSelectedVariant} />}
+      mainContent={<MainContent variant={selectedVariant} setVariant={setSelectedVariant} setEditMode={setEditMode} />}
+      editPanel={<EditPanel />}
+      editMode={editMode}
     />
   );
 };
