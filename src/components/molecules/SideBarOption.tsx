@@ -1,7 +1,8 @@
+import Image from 'next/image';
 import React from 'react';
 
 type SideBarOptionProps = {
-  icon: string | React.ReactNode;
+  icon: React.ReactNode;
   text: string;
   isActive?: boolean;
   onClick?: () => void;
@@ -13,10 +14,13 @@ const SideBarOption: React.FC<SideBarOptionProps> = ({ icon, text, isActive, onC
     <button
       type="button"
       onClick={onClick}
+      aria-label={text}
       className={`flex flex-col justify-center items-center w-[4.56rem] h-[6.490rem] gap-3 cursor-pointer 
-        ${isActive ? 'bg-[url("/assets/images/Frame_7808.svg")]' : 'none'}`}
+        ${isActive ? 'bg-[url("/assets/images/Frame_7808.svg")]' : ''}`}
     >
-      <div className="flex justify-center">{icon}</div>
+      <div className="flex justify-center">
+        {typeof icon === 'string' ? <Image src={icon} alt="icon" width={0} height={0} /> : icon}
+      </div>
       <div className={`w-[3.625rem] text-[0.875rem] font-bold leading-[1.375rem] font-satoshi text-center ${customClassName || 'text-primary'}`}>
         {text}
       </div>

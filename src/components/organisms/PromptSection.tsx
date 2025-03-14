@@ -1,6 +1,7 @@
 'use client';
 import { DownArrowIcon, RandomPromptIcon, RightArrowIcon } from '@/assets/OtherIcons';
 import { PromptModeIcon } from '@/assets/SideBarIcons';
+import { RANDOM_PROMPTS } from '@/constants/EnvogueaiConstants';
 import { useEffect, useState } from 'react';
 import RandomPromptWithTooltip from '../molecules/RandomPromptWithTooltip';
 
@@ -8,22 +9,36 @@ type promptSectionProps = {
   toggleMenu: () => void;
   selectedPrompt: string | null;
   removedPrompt: string | null;
+  autoPrompt: string | undefined;
+  setIsTyping: (setIstyping: boolean) => void;
+  setUserPrompt: (setUserPrompt: string) => void;
 };
 
-const PromptSection: React.FC<promptSectionProps> = ({ toggleMenu, selectedPrompt, removedPrompt }) => {
+const PromptSection = ({ toggleMenu, selectedPrompt, removedPrompt, autoPrompt, setIsTyping, setUserPrompt }: promptSectionProps) => {
   const [promptOpen, setPromptOpen] = useState(false);
   const [promptValue, setPromptValue] = useState('');
 
-  const randomPrompts = [
-    'RandomPrompt1',
-    'RandomPrompt2',
-    'RandomPrompt3',
-    'RandomPrompt4',
-    'RandomPrompt5',
-  ];
+  const adjustTextareaHeight = (textarea: HTMLTextAreaElement | null) => {
+    if (textarea) {
+      textarea.style.height = 'auto';
+      textarea.style.height = `${textarea.scrollHeight}px`;
+    }
+  };
+
+  useEffect(() => {
+    const textarea = document.getElementById('prompt-textarea') as HTMLTextAreaElement | null;
+    adjustTextareaHeight(textarea);
+  }, [promptValue]);
+
+  useEffect(() => {
+    if (autoPrompt) {
+      setPromptValue(autoPrompt);
+      setPromptOpen(true);
+    }
+  }, [autoPrompt]);
 
   const handlePromptSelection = (selectedPrompt: string) => {
-    setPromptValue(prevValue => prevValue ? `${prevValue}, ${selectedPrompt}` : selectedPrompt);
+    setPromptValue(prevValue => prevValue ? `${prevValue} ${selectedPrompt}` : selectedPrompt);
     setPromptOpen(true);
   };
 
@@ -47,24 +62,21 @@ const PromptSection: React.FC<promptSectionProps> = ({ toggleMenu, selectedPromp
 
   const handleInput = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setPromptValue(e.target.value);
-    e.target.style.height = 'auto';
-    e.target.style.height = `${e.target.scrollHeight}px`;
+    setUserPrompt(e.target.value);
+    setIsTyping(true);
+    adjustTextareaHeight(e.target);
   };
 
   const generateRandomPrompt = () => {
-    const randomIndex = Math.floor(Math.random() * randomPrompts.length);
-    const currentPrompt = randomPrompts[randomIndex] || '';
-    setPromptValue((prevValue) => {
-      const parts = prevValue.split(', ');
-      const filteredParts = parts.filter(prompt => !randomPrompts.includes(prompt)); // Remove old random prompt
-      return filteredParts.length > 0 ? `${filteredParts.join(' ')}, ${currentPrompt}` : currentPrompt;
-    });
+    const randomIndex = Math.floor(Math.random() * RANDOM_PROMPTS.length);
+    const currentPrompt = RANDOM_PROMPTS[randomIndex] || '';
+    setPromptValue(currentPrompt);
     setPromptOpen(true);
   };
 
   return (
     <div className="flex flex-col justify-center bg-card border-[1px] px-[0.75rem] py-[0.5rem]
-    card-border rounded-[1rem] h-[100%]"
+    card-border rounded-[1rem] h-full"
     >
       <div className="flex justify-between w-full">
         <div className="flex gap-2">
@@ -90,6 +102,7 @@ const PromptSection: React.FC<promptSectionProps> = ({ toggleMenu, selectedPromp
         {promptOpen
         && (
           <textarea
+            id="prompt-textarea"
             value={promptValue}
             onChange={handleInput}
             className="bg-transparent border-none text-secondary font-satoshi text-[0.75rem]
@@ -103,5 +116,3 @@ const PromptSection: React.FC<promptSectionProps> = ({ toggleMenu, selectedPromp
 };
 
 export default PromptSection;
-
-// max-w-[19.56rem]

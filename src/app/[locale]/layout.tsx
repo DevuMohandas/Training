@@ -6,6 +6,7 @@ import { routing } from '@/libs/i18nNavigation';
 import Providers from '@/Providers ';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale } from 'next-intl/server';
+import { Merriweather } from 'next/font/google';
 import { notFound } from 'next/navigation';
 import '@/styles/global.css';
 
@@ -33,6 +34,12 @@ export const metadata: Metadata = {
     },
   ],
 };
+
+const merriweather = Merriweather({
+  subsets: ['latin'],
+  weight: ['300', '400', '700'],
+  variable: '--font-merriweather',
+});
 
 export function generateStaticParams() {
   return routing.locales.map(locale => ({ locale }));
@@ -87,7 +94,13 @@ export default async function RootLayout(props: {
   // which dynamically adds a `style` attribute to the body tag.
 
   return (
-    <html lang={locale}>
+    <html lang={locale} className={merriweather.variable}>
+      <head>
+        <link
+          rel="stylesheet"
+          href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,700&display=swap"
+        />
+      </head>
       <body suppressHydrationWarning>
         <Providers>
           <NextIntlClientProvider

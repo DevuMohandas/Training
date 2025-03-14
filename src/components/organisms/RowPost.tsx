@@ -1,6 +1,6 @@
 import React from 'react';
 import CustomButton from '../atoms/CustomButton';
-import ImageThumpnail from '../molecules/ImageThumpnail';
+import ImageThumpnail from '../molecules/ImageThumbnail';
 
 type Product = {
   image: string;

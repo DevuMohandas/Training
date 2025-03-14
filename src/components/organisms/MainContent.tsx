@@ -10,7 +10,7 @@ type MainContentProps = {
   setEditMode: (setEditMode: boolean) => void;
 };
 
-const MainContent: React.FC<MainContentProps> = ({ variant, setVariant, setEditMode }) => {
+const MainContent = ({ variant, setVariant, setEditMode }: MainContentProps) => {
   const [lastGeneratedImages, setLastGeneratedImages] = useState<string[]>([]);
   const [imageList, setImageList] = useState<string[][]>([]);
   const [cardVisible, setCardVisible] = useState(false);
@@ -58,7 +58,7 @@ const MainContent: React.FC<MainContentProps> = ({ variant, setVariant, setEditM
   };
 
   return (
-    <div className="relative">
+    <div className="relative h-full overflow-y-auto scrollbar-hide">
       {variant
         ? (
             <GenerateMode
@@ -88,9 +88,9 @@ const MainContent: React.FC<MainContentProps> = ({ variant, setVariant, setEditM
             </div>
           )}
       {cardVisible && (
-        <div className="absolute top-[3.8rem]"><ImageViewCard src={src} prompt={prompt} negativePrompt={negativePrompt} setCardVisibility={setCardVisible} handleDeletedImage={handleDeletedImage} setEditMode={setEditMode} handleDownload={handleDownload} /></div>)}
+        <div className="absolute top-[3.8rem] w-full flex justify-center"><ImageViewCard src={src} prompt={prompt} negativePrompt={negativePrompt} setCardVisibility={setCardVisible} handleDeletedImage={handleDeletedImage} setEditMode={setEditMode} handleDownload={handleDownload} /></div>)}
       {confirmationVisible && (
-        <div className="absolute top-[12rem] flex justify-center w-[100%]"><ConfirmationPopup onConfirm={confirmDeletion} onCancel={() => setConfimationVisible(false)} title="Delete Image" subtitle="Are you sure you want delete this image?" buttonText="Confirm" /></div>) }
+        <div className="absolute top-[12rem] flex justify-center w-full"><ConfirmationPopup onConfirm={confirmDeletion} onCancel={() => setConfimationVisible(false)} title="Delete Image" subtitle="Are you sure you want delete this image?" buttonText="Confirm" /></div>) }
     </div>
   );
 };

@@ -1,5 +1,8 @@
 @import 'tailwindcss';
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap');
+
+body {
+  font-family: 'satoshi', sans-serif;
+}
 
 :root {
   --bg-color: #040508;
@@ -105,4 +108,12 @@
 
 .button-secondary {
   background-color: var(--button-secondary-color);
+}
+
+.font-merriweather {
+  font-family: var(--font-merriweather);
+}
+
+.font-satoshi {
+  font-family: 'Satoshi', sans-serif;
 }

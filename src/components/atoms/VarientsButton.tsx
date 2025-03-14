@@ -37,5 +37,3 @@ const VarientsButton: React.FC<VarientsButtonProps> = ({ onVariantSelect }) => {
 };
 
 export default VarientsButton;
-
-// py-[1.187rem] px-[1.937rem] border-[#1C212A]

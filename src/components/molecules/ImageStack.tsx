@@ -14,7 +14,7 @@ type ImageStackProps = {
   handleDownload: (src: string) => void;
 };
 
-const ImageStack: React.FC<ImageStackProps> = ({ title, imageList, setViewingImage, setPrompt, setCardVisibility, handleDeletedImage, setEditMode, handleDownload }) => {
+const ImageStack = ({ title, imageList, setViewingImage, setPrompt, setCardVisibility, handleDeletedImage, setEditMode, handleDownload }: ImageStackProps) => {
   useEffect(() => {
     setPrompt(title);
   }, [title, setPrompt]);
@@ -37,7 +37,7 @@ const ImageStack: React.FC<ImageStackProps> = ({ title, imageList, setViewingIma
         <div className="font-satoshi font-normal md:text-[1rem] lg:text-[1.25rem] text-primary">{title}</div>
       </div>
 
-      <div className="grid gap-[1rem] sm:grid-cols-2 xl:grid-rows-1 xl:grid-cols-4">
+      <div className="grid gap-[1rem] sm:grid-cols-2 lg:grid-cols-3 xl:grid-rows-1 xl:grid-cols-4">
         {imageList.map((img, index) => (
           img && (
             <ImageWithIcons
@@ -57,5 +57,3 @@ const ImageStack: React.FC<ImageStackProps> = ({ title, imageList, setViewingIma
 };
 
 export default ImageStack;
-
-// sm:grid-rows-2

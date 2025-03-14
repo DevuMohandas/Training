@@ -12,7 +12,9 @@ type ConfirmationPopupProps = {
 
 const ConfirmationPopup: React.FC<ConfirmationPopupProps> = ({ title, subtitle, buttonText, onConfirm, onCancel }) => {
   return (
-    <div className="flex justify-center items-center border card-border shadow-[0px_0px_10.3px_0px_#211A30] rounded-[19px] bg-special py-[3.5rem] px-[3.5rem]">
+    <div className="flex justify-center items-center border card-border shadow-[0px_0px_10.3px_0px_#211A30] rounded-[19px] bg-special
+    xl:py-[3.5rem] xl:px-[3.5rem] lg:py-[2.5rem] lg:px-[2.5rem] md:py-[2rem] md:px-[2rem] sm:py-[1.5rem] sm:px-[1.5rem] py-[1rem] px-[1rem]"
+    >
       <div className="flex flex-col gap-5">
         <div className="text-center text-primary font-bold text-[20px]">{title}</div>
         <div className="text-center text-secondary text-[20px] font-normal">{subtitle}</div>

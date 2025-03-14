@@ -7,12 +7,12 @@ type TooltipProps = {
   icon?: React.ReactNode;
 };
 
-const RandomPromptWithTooltip: React.FC<TooltipProps> = ({ heading, description, icon }) => {
+const RandomPromptWithTooltip = ({ heading, description, icon }: TooltipProps) => {
   return (
     <Tooltip
       title={(
         <div className="flex flex-col gap-1">
-          <div className="text-center Font-bold text-[0.875rem]">{heading}</div>
+          <div className="text-center font-bold text-[0.875rem]">{heading}</div>
           <div className="text-center font-normal text-[0.625rem]">{description}</div>
         </div>
       )}
@@ -23,8 +23,11 @@ const RandomPromptWithTooltip: React.FC<TooltipProps> = ({ heading, description,
           sx: {
             bgcolor: '#1C212A',
             color: '#A6A6A6',
-            width: '211px',
-            height: '4.625rem',
+            // maxWidth: '211px',
+            // height: '4.625rem',
+            maxWidth: '13.18rem',
+            paddingY: '0.5rem',
+            paddingX: '1.5rem',
             border: '1px solid #404246',
           },
         },

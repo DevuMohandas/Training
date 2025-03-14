@@ -5,31 +5,25 @@ type LitemodeTemplateProps = {
   sideBar: React.ReactNode;
   actionPanel?: React.ReactNode;
   mainContent: React.ReactNode;
-  editMode?: boolean;
-  editPanel: React.ReactNode;
 };
 
-const LitemodeTemplate: React.FC<LitemodeTemplateProps> = ({ topBar, sideBar, actionPanel, mainContent, editMode, editPanel }) => {
+const LitemodeTemplate = ({ topBar, sideBar, actionPanel, mainContent }: LitemodeTemplateProps) => {
   return (
-    <div className="bg-body min-h-screen">
+    <div className="bg-body h-screen flex flex-col relative">
       {topBar}
-      <div className="flex min-h-screen">
-        {sideBar}
-        {editMode
-          ? (
-              <div className="w-[100%]">{editPanel}</div>
-            )
-          : (
-              <>
-                {actionPanel}
-                <div className="px-[3rem] pt-[1.3125rem] w-[100%]">
-                  {mainContent}
-                </div>
-              </>
-            )}
+      <div className="flex flex-1 overflow-hidden">
+        <div className="h-full">{sideBar}</div>
+        {actionPanel && <div className="h-full">{actionPanel}</div>}
+        <div className="px-12 pt-6 pb-12 flex-1 overflow-y-auto ">
+          {mainContent}
+        </div>
       </div>
     </div>
   );
 };
 
 export default LitemodeTemplate;
+
+// px-12 pt-6
+// {actionPanel && <div className=" overflow-x-scroll z-10 relative">{actionPanel}</div>}
+// <div className="px-12 pt-6 pb-12 overflow-y-auto flex-1">

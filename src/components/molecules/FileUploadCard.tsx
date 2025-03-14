@@ -31,16 +31,16 @@ const FileUploadCard = () => {
 
   return (
     <div className="flex justify-center items-center gap-[0.75rem] border-2 border-dashed
-     card-border bg-card rounded-[1rem] py-4 px-1"
+     card-border bg-card rounded-[1rem] h-full px-1"
     >
       {preview
         ? (
-            <div className="rounded-[0.416rem] max-w-[15.062rem] h-[8.75rem] overflow-hidden">
+            <div className="rounded-[0.416rem] max-w-[15.062rem] max-h-[8.75rem] overflow-hidden">
               <Image src={preview} alt="preview" width={241} height={140} />
             </div>
           )
         : (
-            <div className="flex flex-col gap-[0.75rem] bg-amber-200">
+            <div className="flex flex-col gap-[0.75rem]">
               <input
                 type="file"
                 ref={FileInputRef}
@@ -48,7 +48,7 @@ const FileUploadCard = () => {
                 onChange={handleFileChange}
                 accept="image/*"
               />
-              <div className="flex justify-center px-2"><CustomButton variant="ternary" text="Upload" onClick={handleUploadClick} className="w-full" /></div>
+              <div className="flex justify-center px-2"><CustomButton variant="upload" text="Upload" onClick={handleUploadClick} className="w-full max-w-[8.875rem] rounded-[1rem]" /></div>
               <div className="text-center text-[0.875rem] text-secondary font-bold">Supports JPG and PNG up to 5MB</div>
             </div>
           )}

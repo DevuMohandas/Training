@@ -7,16 +7,16 @@ type VariantsWithPromptprops = {
   setLastGeneratedImages: (images: string[]) => void;
 };
 
-const VariantsWithPrompt: React.FC<VariantsWithPromptprops> = ({ variant, setLastGeneratedImages }) => {
+const VariantsWithPrompt = ({ variant, setLastGeneratedImages }: VariantsWithPromptprops) => {
   return (
-    <div className="flex flex-col gap-[4.3125rem] w-[100%]">
+    <div className="flex flex-col w-[100%]">
       <div className="flex gap-6">
         <Image src="assets/images/pendant1.svg" width={60} height={46} alt="image" />
         <div className="text-[1.25rem] font-normal text-primary">
           Design a discovery page for selling Scandinavia designer furnitures, it has the app name at the top, a hero section.
         </div>
       </div>
-      <div className="xl:px-16">
+      <div className="p-3 lg:p-16 flex justify-center">
         <ImageLoaderSection
           variants={variant}
           setLastGeneratedImages={setLastGeneratedImages}

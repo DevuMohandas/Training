@@ -7,9 +7,9 @@ const UpgradeNoticeCard = () => {
     <div
       className="flex p-[1px] rounded-[1rem] bg-gradient-main"
     >
-      <div className="w-[100%] bg-card rounded-[1rem]">
-        <div className="flex flex-col justify-center items-center w-[100%]
-         rounded-[1rem] card-bg-special p-2 gap-2 xl:gap-[0.813rem] xl:pt-[0.75rem] xl:pb-[1.188rem] text-[0.875rem]"
+      <div className="w-full bg-card rounded-[1rem]">
+        <div className="flex flex-col justify-center items-center
+         rounded-[1rem] card-bg-special p-2 gap-[0.813rem] pt-3 pb-3.5 text-[0.875rem]"
         >
           <Image
             alt="icon"
@@ -20,8 +20,8 @@ const UpgradeNoticeCard = () => {
           <div className="text-satoshi text-sm xl:text-[0.875rem] text-primary font-bold text-center">
             Unlock Magic AI Features
           </div>
-          <div className="w-full flex justify-center px-2">
-            <CustomButton variant="primary" text="Upgrade" className="w-full" />
+          <div className="flex justify-center px-2">
+            <CustomButton variant="primary" text="Upgrade" className="w-[8.875rem]" />
           </div>
         </div>
       </div>

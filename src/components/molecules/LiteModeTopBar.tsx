@@ -6,7 +6,6 @@ const LiteModeTopBar = () => {
   return (
     <div className="flex justify-between bg-special border-1 border-[#1C212A] p-[0.6875rem]">
       <div>
-        {/* <Image alt="envogue-logo" src={ICONS.ENVOGUE_LOGO} width={30} height={34} /> */}
         <EnvogueLogoIcon className="color-icon" />
       </div>
       <div className="flex items-center gap-[0.813rem]">

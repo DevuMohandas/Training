@@ -17,7 +17,7 @@ const NegativePromptSection = () => {
       card-border rounded-[1rem] h-[100%]"
     >
       <div className="flex gap-2">
-        <button type="button" onClick={() => setPromptOpen(!promptOpen)}>
+        <button type="button" aria-label="Toggle Negative Prompt" onClick={() => setPromptOpen(!promptOpen)}>
           {promptOpen ? <DownArrowIcon className="color-icon" /> : <RightArrowIcon className="color-icon" /> }
         </button>
         <div className="text-satoshi text-primary text-[1rem] font-bold">Negative Prompt</div>

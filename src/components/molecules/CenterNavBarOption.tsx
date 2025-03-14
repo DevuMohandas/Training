@@ -13,12 +13,14 @@ type CenterNavBarOptionProps = {
 const CenterNavBarOption: React.FC<CenterNavBarOptionProps> = ({ icon, text, route, isSelected, onClick }) => {
   return (
     <Link href={route} onClick={onClick}>
-      <div className={`flex justify-center items-center w-[7.5rem] border-r-1 border-[#10151F] cursor-pointer
-        ${isSelected ? 'h-[8.3125rem] w-[8.3125rem] rounded-full p-0.5 bg-gradient-to-r from-[#F28E4C] via-[#FF5A5E] via-[#C9649A] to-[#61A6F2]' : 'none'}`}
+      <div className={`flex justify-center items-center border-r-2 border-[#10151F] cursor-pointer
+        ${isSelected
+      ? 'h-[7rem] w-[7rem] md:h-[8rem] md:w-[8rem] rounded-full p-0.5 bg-gradient-to-r from-[#F28E4C] via-[#FF5A5E] via-[#C9649A] to-[#61A6F2]'
+      : 'w-[4.5rem] md:w-[5.5rem] lg:w-[7.5rem]'}`}
       >
         <div className={`flex flex-col justify-center ${isSelected && 'w-[100%] h-[100%] bg-[#040508] rounded-full'}`}>
           <div className="flex justify-center"><Image alt="option-icon" src={icon} width={36} height={36} /></div>
-          <div className="text-[#ffffff] font-satoshi font-bold text-center">
+          <div className="text-[#ffffff] text-[0.60rem] md:text-[0.75rem] lg:text-[0.875rem] font-satoshi font-bold text-center">
             {text}
           </div>
         </div>
@@ -28,4 +30,4 @@ const CenterNavBarOption: React.FC<CenterNavBarOptionProps> = ({ icon, text, rou
 };
 export default CenterNavBarOption;
 
-// text-[0.875rem]
+// text-[0.875rem] w-[8.3125rem]

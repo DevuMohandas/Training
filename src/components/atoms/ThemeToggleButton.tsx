@@ -3,7 +3,7 @@ import { ThemeModeIcon } from '@/assets/TopBarIcons';
 import { useEffect, useState } from 'react';
 
 const ThemeToggleButton = () => {
-  const [theme, setTheme] = useState<string | null>(null);
+  const [theme, setTheme] = useState<string>('none');
 
   useEffect(() => {
     const storedTheme = localStorage.getItem('theme') || 'none';
@@ -15,7 +15,11 @@ const ThemeToggleButton = () => {
     const newTheme = theme === 'bw' ? 'none' : 'bw';
     setTheme(newTheme);
     localStorage.setItem('theme', newTheme);
-    document.documentElement.classList.toggle('bw', newTheme === 'bw');
+    if (newTheme === 'bw') {
+      document.documentElement.classList.add('bw');
+    } else {
+      document.documentElement.classList.remove('bw');
+    }
   };
 
   return (

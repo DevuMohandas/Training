@@ -1,12 +1,12 @@
 import Image from 'next/image';
 import React from 'react';
 
-type ImageThumpnailProps = {
+type ImageThumbnailProps = {
   image: string;
   description: string;
 };
 
-const ImageThumpnail: React.FC<ImageThumpnailProps> = ({ image, description }) => {
+const ImageThumbnail = ({ image, description }: ImageThumbnailProps) => {
   return (
     <div className="flex flex-col">
       <div className=" rounded-t-[0.9375rem]">
@@ -25,4 +25,4 @@ const ImageThumpnail: React.FC<ImageThumpnailProps> = ({ image, description }) =
   );
 };
 
-export default ImageThumpnail;
+export default ImageThumbnail;
