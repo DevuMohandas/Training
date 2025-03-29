@@ -7,16 +7,35 @@ import RandomPromptWithTooltip from '../molecules/RandomPromptWithTooltip';
 
 type promptSectionProps = {
   toggleMenu: () => void;
-  selectedPrompt: string | null;
-  removedPrompt: string | null;
-  autoPrompt: string | undefined;
-  setIsTyping: (setIstyping: boolean) => void;
-  setUserPrompt: (setUserPrompt: string) => void;
+  selectedPrompts: string[];
+  autoPrompt?: string | undefined;
+  setIsTyping?: (setIstyping: boolean) => void;
+  setUserPrompt?: (setUserPrompt: string) => void;
+  newDesign?: boolean;
+  displayPrompt: string;
 };
 
-const PromptSection = ({ toggleMenu, selectedPrompt, removedPrompt, autoPrompt, setIsTyping, setUserPrompt }: promptSectionProps) => {
+const PromptSection = ({ toggleMenu, autoPrompt, setIsTyping, setUserPrompt, selectedPrompts, displayPrompt }: promptSectionProps) => {
   const [promptOpen, setPromptOpen] = useState(false);
-  const [promptValue, setPromptValue] = useState('');
+  const [promptValue, setPromptValue] = useState<string | string[]>('');
+  const [userTyping, setUserTyping] = useState(false);
+
+  console.warn('use typing:', userTyping);
+
+  useEffect(() => {
+    if ((selectedPrompts || []).length > 0) {
+      console.warn(selectedPrompts);
+      setPromptOpen(true);
+      setPromptValue(selectedPrompts);
+    }
+  }, [selectedPrompts]);
+
+  useEffect(() => {
+    if (displayPrompt) {
+      setPromptValue(displayPrompt);
+      setPromptOpen(true);
+    }
+  }, [displayPrompt]);
 
   const adjustTextareaHeight = (textarea: HTMLTextAreaElement | null) => {
     if (textarea) {
@@ -31,40 +50,19 @@ const PromptSection = ({ toggleMenu, selectedPrompt, removedPrompt, autoPrompt, 
   }, [promptValue]);
 
   useEffect(() => {
-    if (autoPrompt) {
-      setPromptValue(autoPrompt);
+    if (autoPrompt && (userTyping === false)) {
       setPromptOpen(true);
+      setPromptValue(autoPrompt);
     }
-  }, [autoPrompt]);
-
-  const handlePromptSelection = (selectedPrompt: string) => {
-    setPromptValue(prevValue => prevValue ? `${prevValue} ${selectedPrompt}` : selectedPrompt);
-    setPromptOpen(true);
-  };
-
-  useEffect(() => {
-    if (selectedPrompt) {
-      handlePromptSelection(selectedPrompt);
-    }
-  }, [selectedPrompt]);
-
-  useEffect(() => {
-    if (removedPrompt && promptValue.includes(removedPrompt)) {
-      setPromptValue((prevValue) => {
-        const updatedPrompts = prevValue
-          .split(', ')
-          .filter(prompt => prompt !== removedPrompt)
-          .join(', ');
-        return updatedPrompts;
-      });
-    }
-  }, [removedPrompt, promptValue]);
+  }, [autoPrompt, userTyping]);
 
   const handleInput = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setPromptValue(e.target.value);
-    setUserPrompt(e.target.value);
-    setIsTyping(true);
+    setIsTyping?.(true);
+    const inputValue = e.target.value;
+    setPromptValue(inputValue);
+    setUserPrompt?.(inputValue);
     adjustTextareaHeight(e.target);
+    setUserTyping(true);
   };
 
   const generateRandomPrompt = () => {
@@ -74,18 +72,25 @@ const PromptSection = ({ toggleMenu, selectedPrompt, removedPrompt, autoPrompt, 
     setPromptOpen(true);
   };
 
+  // const handleFocus = () => {
+  //   if (userTyping === false) {
+  //     setUserTyping(true);
+  //   }
+  //   setPromptValue('');
+  // };
+
   return (
-    <div className="flex flex-col justify-center bg-card border-[1px] px-[0.75rem] py-[0.5rem]
-    card-border rounded-[1rem] h-full"
+    <div className="flex flex-col justify-center bg-card border-[1px] px-space-03 py-space-02
+    card-border rounded-radius-xl h-full max-h-[11.1rem] "
     >
       <div className="flex justify-between w-full">
-        <div className="flex gap-2">
+        <div className="flex gap-space-02">
           <button type="button" onClick={() => setPromptOpen(prev => !prev)}>
             {promptOpen ? <DownArrowIcon className="color-icon" /> : <RightArrowIcon className="color-icon" /> }
           </button>
-          <div className="text-satoshi text-primary text-[1rem] font-bold">Prompt</div>
+          <div className="text-primary text-md font-system-bold">Prompt</div>
         </div>
-        <div className="flex justify-center items-center gap-4">
+        <div className="flex justify-center items-center gap-space-04">
           <button onClick={generateRandomPrompt} type="button">
             <RandomPromptWithTooltip
               heading="Random Prompt"
@@ -98,15 +103,16 @@ const PromptSection = ({ toggleMenu, selectedPrompt, removedPrompt, autoPrompt, 
           </button>
         </div>
       </div>
-      <div>
+      <div className="overflow-auto custom-scrollbar">
         {promptOpen
         && (
           <textarea
             id="prompt-textarea"
             value={promptValue}
             onChange={handleInput}
-            className="bg-transparent border-none text-secondary font-satoshi text-[0.75rem]
-            leading-[1rem] w-full overflow-y-auto resize-none outline-none font-bold p-2"
+            // onFocus={handleFocus}
+            className="bg-transparent border-none text-secondary text-sm
+            leading-normal w-full resize-none outline-none font-system-bold p-space-02 overflow-auto"
             rows={1}
           />
         )}

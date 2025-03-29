@@ -1,0 +1,17 @@
+{
+  "upgrade_Card_Title": "Débloquez les fonctionnalités magiques de l'IA",
+  "upgrade_Button_text": "Améliorer",
+  "upload_image": "Télécharger l'image",
+  "upload": "Télécharger",
+  "image_rules": "Prend en charge JPG et PNG jusqu'à 5 Mo",
+  "prompt_box_title": "Invite",
+  "negative_prompt_title": "Invite négative",
+  "variants": "Variantes",
+  "generate_button_title": "Générer",
+  "jewels_unit": "Cela utilisera 12 bijoux",
+  "lite_mode": "Mode léger",
+  "magic_mode": "Mode magique",
+  "prompt_mode": "Mode d'invite",
+  "template_mode": "Mode modèle",
+  "category_mode": "Mode catégorie"
+}

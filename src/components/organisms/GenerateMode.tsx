@@ -12,9 +12,9 @@ const GenerateMode: React.FC<GenerateModeProps> = ({ variant, setVariant, setLas
     setVariant(null);
   };
   return (
-    <div className="flex flex-col gap-9 w-[100%]">
+    <div className="flex flex-col gap-space-08 w-full">
       <div className="flex">
-        <button type="button" onClick={goBack} className="w-[32px] h-[28px] bg-card border card-border flex justify-center items-center rounded-[7px]">
+        <button type="button" onClick={goBack} className="w-[2rem] h-[1.75rem] bg-card border card-border flex justify-center items-center rounded-radius-s">
           <BackArrow className="color-icon" />
         </button>
       </div>

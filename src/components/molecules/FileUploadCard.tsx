@@ -1,4 +1,5 @@
 'use client';
+// import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import React, { useRef } from 'react';
 import CustomButton from '../atoms/CustomButton';
@@ -6,6 +7,7 @@ import CustomButton from '../atoms/CustomButton';
 const FileUploadCard = () => {
   const FileInputRef = useRef<HTMLInputElement>(null);
   const [preview, setPreview] = React.useState<string | null>(null);
+  // const t = useTranslations();
   // const [error, setError] = React.useState<string | null>(null);
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -30,17 +32,17 @@ const FileUploadCard = () => {
   };
 
   return (
-    <div className="flex justify-center items-center gap-[0.75rem] border-2 border-dashed
-     card-border bg-card rounded-[1rem] h-full px-1"
+    <div className="flex justify-center items-center gap-space-03 border-2 border-dashed
+     card-border bg-card rounded-radius-xl h-full px-space-01"
     >
       {preview
         ? (
-            <div className="rounded-[0.416rem] max-w-[15.062rem] max-h-[8.75rem] overflow-hidden">
+            <div className="rounded-radius-xl max-w-[15.062rem] max-h-[8.75rem] overflow-hidden">
               <Image src={preview} alt="preview" width={241} height={140} />
             </div>
           )
         : (
-            <div className="flex flex-col gap-[0.75rem]">
+            <div className="flex flex-col gap-space-03">
               <input
                 type="file"
                 ref={FileInputRef}
@@ -48,8 +50,8 @@ const FileUploadCard = () => {
                 onChange={handleFileChange}
                 accept="image/*"
               />
-              <div className="flex justify-center px-2"><CustomButton variant="upload" text="Upload" onClick={handleUploadClick} className="w-full max-w-[8.875rem] rounded-[1rem]" /></div>
-              <div className="text-center text-[0.875rem] text-secondary font-bold">Supports JPG and PNG up to 5MB</div>
+              <div className="flex justify-center px-space-02"><CustomButton variant="upload" text="Upload" onClick={handleUploadClick} className="w-full max-w-[8.875rem] rounded-radius-xl" /></div>
+              <div className="text-center text-base text-secondary font-system-bold">Supports JPG and PNG up to 5MB</div>
             </div>
           )}
     </div>

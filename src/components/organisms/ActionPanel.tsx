@@ -3,20 +3,23 @@ import CustomButton from '@/components/atoms/CustomButton';
 import FileUploadCard from '@/components/molecules/FileUploadCard';
 import NegativePromptSection from '@/components/molecules/NegativePromptSection';
 import PromptSection from '@/components/organisms/PromptSection';
+import { PROMPTMENU_OPTIONS } from '@/constants/EnvogueaiConstants';
 import { useState } from 'react';
 import VarientsButton from '../atoms/VarientsButton';
 import PromptMenu from '../molecules/PromptMenu';
 import UpgradeNoticeCard from '../molecules/UpgradeNoticeCard';
+// import { PROMPTMENU_OPTIONS } from '@/constants/EnvogueaiConstants';
 
 type ActionPanelProps = {
   onVariantSelect: (variant: number | null) => void;
+  prompt: string;
+  negativePrompt?: string;
 };
 
-const ActionPanel = ({ onVariantSelect }: ActionPanelProps) => {
+const ActionPanel = ({ onVariantSelect, prompt, negativePrompt }: ActionPanelProps) => {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const [selectedVariant, setSelectedVariant] = useState<number | null>(null);
-  const [selectedPrompt, setSelectedPrompt] = useState<string | null>(null);
-  const [removedPrompt, setRemovedPrompt] = useState<string | null>(null);
+  const [selectedPromptIds, setSelectedPromptIds] = useState<number[]>([]);
 
   const toggleMenu = () => {
     setMenuOpen(prev => !prev);
@@ -34,30 +37,46 @@ const ActionPanel = ({ onVariantSelect }: ActionPanelProps) => {
     }
   };
 
+  const handleSelectedPrompt = (id: number) => {
+    if (!selectedPromptIds.includes(id)) {
+      setSelectedPromptIds(prev => [...prev, id]);
+    }
+  };
+
+  const handleRemovePrompt = (id: number) => {
+    setSelectedPromptIds(prev => prev.filter(promptId => promptId !== id));
+  };
+
+  const selectedPrompts = selectedPromptIds
+    .map(id => PROMPTMENU_OPTIONS.find(option => option.id === id)) // Find the object
+    .filter(option => option !== undefined) // Remove undefined values
+    .map(option => option!.option); // Extract `option` value safely
+
   return (
-    <div className="flex border-[1px] px-5 pt-7 sm:w-[30vw] max-w-[360px]
+    <div className="flex border-[1px] px-space-06 pt-space-06 sm:w-[30vw] max-w-[22.5rem]
      border-[#1C212A] bg-special relative min-h-screen"
     >
-      <div className="flex flex-col gap-3 grow">
+      <div className="flex flex-col gap-space-03 grow">
         <UpgradeNoticeCard />
-        <div className="text-[1rem] text-primary font-satoshi font-bold">Upload Image</div>
+        <div className="text-md text-primary font-satoshi font-system-bold">Upload</div>
         <div className="grow max-h-[194px]"><FileUploadCard /></div>
-        <div><PromptSection toggleMenu={toggleMenu} selectedPrompt={selectedPrompt} removedPrompt={removedPrompt} /></div>
-        <div><NegativePromptSection /></div>
-        <div className="flex flex-col gap-3 justify-center">
-          <div className="text-[1rem] text-primary font-satoshi font-bold">Variants</div>
+        <div><PromptSection selectedPrompts={selectedPrompts} toggleMenu={toggleMenu} displayPrompt={prompt} /></div>
+        <div><NegativePromptSection displayNegativePrompt={negativePrompt} /></div>
+        <div className="flex flex-col gap-space-03 justify-center">
+          <div className="text-md text-primary font-satoshi font-system-bold">Variants</div>
           <VarientsButton onVariantSelect={handleVariantSelect} />
         </div>
         <div className="flex justify-center"><CustomButton onClick={handleGenerateClick} text="Generate" variant="primary" className="w-[10.81rem]" /></div>
-        <div className="text-[0.875rem] text-[#A6A6A6] font-satoshi font-bold text-center">This will use 12 Jewels</div>
+        <div className="text-base text-[#A6A6A6] font-satoshi font-system-bold text-center">This will use 12 Jewels.</div>
       </div>
       {isMenuOpen && (
         <div className="absolute right-0 top-0 translate-x-full h-full z-[999]">
           <PromptMenu
+            variant="litemodepage"
             isMenuOpen={isMenuOpen}
             toggleMenu={toggleMenu}
-            onSelectPrompt={setSelectedPrompt}
-            onRemovePrompt={setRemovedPrompt}
+            onSelectPrompt={handleSelectedPrompt}
+            onRemovePrompt={handleRemovePrompt}
           />
         </div>
       )}

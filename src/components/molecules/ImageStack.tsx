@@ -5,16 +5,13 @@ import ImageWithIcons from '../atoms/ImageWithIcons';
 type ImageStackProps = {
   title: string;
   imageList: string[];
-  setViewingImage: (src: string) => void;
   setPrompt: (prompt: string) => void;
   setNegativePrompt: (negativePrompt: string) => void;
-  setCardVisibility: (cardVisible: boolean) => void;
   handleDeletedImage: (src: string) => void;
   setEditMode: (setEditMode: boolean) => void;
-  handleDownload: (src: string) => void;
 };
 
-const ImageStack = ({ title, imageList, setViewingImage, setPrompt, setCardVisibility, handleDeletedImage, setEditMode, handleDownload }: ImageStackProps) => {
+const ImageStack = ({ title, imageList, setPrompt, handleDeletedImage }: ImageStackProps) => {
   useEffect(() => {
     setPrompt(title);
   }, [title, setPrompt]);
@@ -24,9 +21,9 @@ const ImageStack = ({ title, imageList, setViewingImage, setPrompt, setCardVisib
   }
 
   return (
-    <div className="flex flex-col gap-4">
-      <div className="flex justify-center items-center gap-2">
-        <div className="border-2 border-[#1C212A] rounded-[0.25rem]">
+    <div className="flex flex-col gap-space-04">
+      <div className="flex justify-center items-center gap-space-02">
+        <div className="border-2 border-[#1C212A] rounded-radius-xs">
           <Image
             alt="image"
             src={imageList[0] ?? 'assets/images/j1.svg'}
@@ -34,20 +31,17 @@ const ImageStack = ({ title, imageList, setViewingImage, setPrompt, setCardVisib
             height={46}
           />
         </div>
-        <div className="font-satoshi font-normal md:text-[1rem] lg:text-[1.25rem] text-primary">{title}</div>
+        <div className="font-satoshi font-system-regular text-md new-md:text-lg text-primary">{title}</div>
       </div>
 
-      <div className="grid gap-[1rem] sm:grid-cols-2 lg:grid-cols-3 xl:grid-rows-1 xl:grid-cols-4">
+      <div className="grid gap-space-04 sm:grid-cols-2 lg:grid-cols-3 xl:grid-rows-1 xl:grid-cols-4">
         {imageList.map((img, index) => (
           img && (
             <ImageWithIcons
               src={img}
               key={index}
-              setCardVisibility={setCardVisibility}
-              setViewingImage={setViewingImage}
               handleDeletedImage={handleDeletedImage}
-              setEditMode={setEditMode}
-              handleDownload={handleDownload}
+              // setEditMode={setEditMode}
             />
           )
         ))}

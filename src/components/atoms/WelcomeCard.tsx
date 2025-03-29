@@ -2,12 +2,12 @@ type WelcomeCardProps = {
   text: string;
 };
 
-const WelcomeCard: React.FC<WelcomeCardProps> = ({ text }) => {
+const WelcomeCard = ({ text }: WelcomeCardProps) => {
   return (
-    <div className="flex justify-center w-full bg-gradient-main">
-      <div className=" w-full flex justify-center" style={{ background: 'linear-gradient(221.79deg, rgba(4, 5, 8, 0) 20.71%, rgba(4, 5, 8, 0.9) 90.33%)' }}>
-        <div className="text-[1.25rem] mt-[3.56rem] mb-[5rem] sm:mb-[6.93rem] max-w-[18.75rem] sm:text-[1.875rem] sm:max-w-[30rem] md:text-[2.25rem]
-        md:max-w-[31.25rem] text-center font-bold text-[#ffffff] font-merriweather"
+    <div className="flex justify-center w-full bg-gradient-main relative">
+      <div className="w-full h-full flex justify-center bg-custom-gradient">
+        <div className="text-xl mt-space-14 mb-space-20 new-sm:mb-space-28 max-w-[18.75rem] new-sm:text-3xl sm:max-w-[30rem] new-md:text-4xl
+          md:max-w-[31.25rem] text-center font-system-bold text-[#ffffff] font-merriweather leading-huge"
         >
           {text}
         </div>
@@ -17,5 +17,3 @@ const WelcomeCard: React.FC<WelcomeCardProps> = ({ text }) => {
 };
 
 export default WelcomeCard;
-
-// background: linear-gradient(90deg, #61A6F2 0%, #C9649A 32.71%, #FF5A5E 68.67%, #F28E4C 100%);

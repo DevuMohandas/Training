@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
 import { DemoBadge } from '@/components/DemoBadge';
+import Providers from '@/context/Providers';
 import arcjet, { detectBot, request } from '@/libs/Arcjet';
 import { Env } from '@/libs/Env';
 import { routing } from '@/libs/i18nNavigation';
-import Providers from '@/Providers ';
+// import Providers from '@/Providers ';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale } from 'next-intl/server';
 import { Merriweather } from 'next/font/google';
@@ -94,7 +95,7 @@ export default async function RootLayout(props: {
   // which dynamically adds a `style` attribute to the body tag.
 
   return (
-    <html lang={locale} className={merriweather.variable}>
+    <html lang={locale} className={merriweather.variable} data-theme="dark">
       <head>
         <link
           rel="stylesheet"

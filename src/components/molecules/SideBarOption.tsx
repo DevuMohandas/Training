@@ -15,13 +15,13 @@ const SideBarOption: React.FC<SideBarOptionProps> = ({ icon, text, isActive, onC
       type="button"
       onClick={onClick}
       aria-label={text}
-      className={`flex flex-col justify-center items-center w-[4.56rem] h-[6.490rem] gap-3 cursor-pointer 
+      className={`flex flex-col justify-center items-center w-[4.56rem] h-[6.490rem] gap-space-03 cursor-pointer 
         ${isActive ? 'bg-[url("/assets/images/Frame_7808.svg")]' : ''}`}
     >
       <div className="flex justify-center">
         {typeof icon === 'string' ? <Image src={icon} alt="icon" width={0} height={0} /> : icon}
       </div>
-      <div className={`w-[3.625rem] text-[0.875rem] font-bold leading-[1.375rem] font-satoshi text-center ${customClassName || 'text-primary'}`}>
+      <div className={`w-[3.625rem] text-base font-system-bold leading-relaxed font-satoshi text-center ${customClassName || 'text-primary'}`}>
         {text}
       </div>
     </button>

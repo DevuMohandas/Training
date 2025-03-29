@@ -4,21 +4,21 @@ import UndoRedoButton from '../atoms/UndoRedoButton';
 
 const ToolBar = () => {
   const toolsList = [
-    { icon: 'assets/icons/4icons.svg', alt: '4icons' },
-    { icon: 'assets/icons/eraser.svg', alt: 'eraser' },
-    { icon: 'assets/icons/pen1.svg', alt: 'pen1' },
-    { icon: 'assets/icons/options-icon.svg', alt: 'options-icon' },
-    { icon: 'assets/icons/color-ellipse.svg', alt: 'color-ellipse' },
+    { icon: '/assets/icons/4icons.svg', alt: '4icons' },
+    { icon: '/assets/icons/eraser.svg', alt: 'eraser' },
+    { icon: '/assets/icons/pen1.svg', alt: 'pen1' },
+    { icon: '/assets/icons/options-icon.svg', alt: 'options-icon' },
+    { icon: '/assets/icons/color-ellipse.svg', alt: 'color-ellipse' },
   ];
 
   return (
-    <div className="w-[4.5rem] rounded-[1.188rem] pt-4 px-4 pb-8 bg-special border-l-2 border-[#1C212A]" style={{ boxShadow: '0px 4px 22.5px 0px #C6C6C640' }}>
-      <div className="flex flex-col gap-5">
-        <div className="flex flex-col gap-2">
-          <UndoRedoButton label="Undo" icon="assets/icons/undo-vector.svg" />
-          <UndoRedoButton label="Redo" icon="assets/icons/redo-vector.svg" />
+    <div className="w-[4.5rem] rounded-radius-2xl pt-space-04 px-space-04 pb-space-08 bg-special border-l-2 border-[#1C212A]" style={{ boxShadow: '0px 4px 22.5px 0px #C6C6C640' }}>
+      <div className="flex flex-col gap-space-06">
+        <div className="flex flex-col gap-space-02">
+          <UndoRedoButton label="Undo" icon="/assets/icons/undo-vector.svg" />
+          <UndoRedoButton label="Redo" icon="/assets/icons/redo-vector.svg" />
         </div>
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-col gap-space-06">
           {toolsList.map((tool, index) => (
             <ToolBarOptions
               key={index}

@@ -22,7 +22,7 @@ const VarientsButton: React.FC<VarientsButtonProps> = ({ onVariantSelect }) => {
           type="button"
           onClick={() => handleClick(num)}
           key={num}
-          className={`flex justify-center items-center text-primary text-[1rem] font-bold font-satoshi cursor-pointer
+          className={`flex justify-center items-center text-primary text- font-bold font-satoshi cursor-pointer
           rounded-[0.188rem] bg-card h-[3.75rem] w-[100%] p-0.5 
           ${activeIndex === num
           ? 'bg-gradient-to-r from-[#F28E4C] via-[#C9649A] via-[#FF5A5E] to-[#61A6F2]'

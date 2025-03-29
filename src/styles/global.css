@@ -1,35 +1,69 @@
 @import 'tailwindcss';
 
+@import './design-tokens/typography.css';
+@import './design-tokens/borderRadius.css';
+/* @import './design-tokens/color.css'; */
+@import './design-tokens/screen.css';
+@import './design-tokens/spacing.css';
+
+:root {
+  --bg: #040508;
+  --text: #ffffff;
+  --cardBg: #10151f;
+  --cardBorder: #1c212a;
+  --textSecondary: #a6a6a6;
+  --bgSpecial: linear-gradient(33.04deg, #06090e 40.12%, #0c111e 80%);
+  --icon: #ffffff;
+  --bgCardPattern: url('/assets/images/gradient-background.svg');
+  --iconSecondary: #ffffff;
+  --buttonTertiary: #1c212a;
+  --buttonSecondary: #1c212a;
+}
+
+.bw {
+  --bg: #ffffff;
+  --text: #000000;
+  --cardBg: #eae8ea;
+  --cardBorder: #c5c4c4;
+  --textSecondary: #8c8a8c;
+  --bgSpecial: #ffffff;
+  --icon: #000000;
+  --bgCardPattern: #eae8ea;
+  --iconSecondary: #8c8a8c;
+  --buttonTertiary: #c5c4c4;
+  --buttonSecondary: #c3c2c1;
+}
+
 body {
   font-family: 'satoshi', sans-serif;
 }
 
 :root {
-  --bg-color: #040508;
-  --card-bg: #10151f;
-  --card-border: #1c212a;
-  --text-color: #ffffff;
-  --text-secondary: #a6a6a6;
-  --bg-special: linear-gradient(33.04deg, #06090e 40.12%, #0c111e 80%);
-  --icon-color: #ffffff;
-  --card-bg-special: url('/assets/images/gradient-background.svg');
-  --icon-secondary: #ffffff;
-  --ternary-btn-color: #1c212a;
-  --button-secondary-color: #1c212a;
+  --bg-color: var(--bg);
+  --card-bg: var(--cardBg);
+  --card-border: var(--cardBorder);
+  --text-color: var(--text);
+  --text-secondary: var(--textSecondary);
+  --bg-special: var(--bgSpecial);
+  --icon-color: var(--icon);
+  --card-bg-special: var(--bgCardPattern);
+  --icon-secondary: var(--iconSecondary);
+  --ternary-btn-color: var(--buttonTertiary);
+  --button-secondary-color: var(--buttonSecondary);
 }
 
 .bw {
-  --bg-color: #ffffff;
-  --text-color: #000000;
-  --card-bg: #eae8ea;
-  --card-border: #c5c4c4;
-  --text-secondary: #8c8a8c;
-  --bg-special: #ffffff;
-  --icon-color: #000000;
-  --card-bg-special: #eae8ea;
-  --icon-secondary: #8c8a8c;
-  --ternary-btn-color: #c5c4c4;
-  --button-secondary-color: #c3c2c1;
+  --bg-color: var(--bg);
+  --text-color: var(--text);
+  --card-bg: var(--cardBg);
+  --card-border: var(--cardBorder);
+  --text-secondary: var(--textSecondary);
+  --bg-special: var(--bgSpecial);
+  --icon-color: var(--icon);
+  --card-bg-special: var(--bgCardPattern);
+  --icon-secondary: var(--iconSecondary);
+  --ternary-btn-color: var(--buttonTertiary);
+  --button-secondary-color: var(--buttonSecondary);
 }
 
 .font-merriweather {
@@ -110,10 +144,21 @@ body {
   background-color: var(--button-secondary-color);
 }
 
-.font-merriweather {
-  font-family: var(--font-merriweather);
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
 }
 
-.font-satoshi {
-  font-family: 'Satoshi', sans-serif;
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #1c212a;
+  border-radius: 24px;
+}
+
+@layer utilities {
+  .bg-custom-gradient {
+    background: linear-gradient(221.79deg, rgba(4, 5, 8, 0) 20.71%, rgba(4, 5, 8, 0.9) 90.33%);
+  }
+
+  .animation-card-gradient {
+    background: linear-gradient(196.42deg, rgba(0, 0, 0, 0) 13.63%, rgba(0, 0, 0, 0.9) 62.68%);
+  }
 }

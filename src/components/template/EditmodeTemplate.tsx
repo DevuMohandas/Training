@@ -1,18 +1,18 @@
+import BaseModeTemplate from './BaseModeTemplate';
+
 type EditmodeTemplateProps = {
   topBar: React.ReactNode;
   sideBar: React.ReactNode;
   editPanel: React.ReactNode;
 };
 
-const EditmodeTemplate = ({ topBar, sideBar, editPanel }: EditmodeTemplateProps) => {
+const EditmodeTemplate = ({ editPanel }: EditmodeTemplateProps) => {
   return (
-    <div className="bg-body min-h-screen">
-      {topBar}
-      <div className="flex w-full">
-        {sideBar}
+    <BaseModeTemplate>
+      <div className="h-full bg-body">
         {editPanel}
       </div>
-    </div>
+    </BaseModeTemplate>
   );
 };
 

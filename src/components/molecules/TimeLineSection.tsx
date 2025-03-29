@@ -7,8 +7,8 @@ type TimeLineSectionProps = {
 
 const TimeLineSection = ({ timeline, historyList }: TimeLineSectionProps) => {
   return (
-    <div className="flex flex-col gap-5">
-      <div className="text-[1.25rem] text-primary font-bold">{timeline}</div>
+    <div className="flex flex-col gap-space-02">
+      <div className="text-lg text-primary font-system-bold">{timeline}</div>
       {historyList.map(({ id, prompt }) =>
         (
           <HistoryBox

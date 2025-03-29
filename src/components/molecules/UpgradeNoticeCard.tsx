@@ -5,11 +5,11 @@ import CustomButton from '../atoms/CustomButton';
 const UpgradeNoticeCard = () => {
   return (
     <div
-      className="flex p-[1px] rounded-[1rem] bg-gradient-main"
+      className="flex p-space-smallest rounded-radius-xl bg-gradient-main"
     >
-      <div className="w-full bg-card rounded-[1rem]">
+      <div className="w-full bg-card rounded-radius-xl">
         <div className="flex flex-col justify-center items-center
-         rounded-[1rem] card-bg-special p-2 gap-[0.813rem] pt-3 pb-3.5 text-[0.875rem]"
+         rounded-[1rem] card-bg-special p-space-02 gap-space-03 pt-space-03 pb-space-04 text-base"
         >
           <Image
             alt="icon"
@@ -17,10 +17,10 @@ const UpgradeNoticeCard = () => {
             width={24}
             height={24}
           />
-          <div className="text-satoshi text-sm xl:text-[0.875rem] text-primary font-bold text-center">
-            Unlock Magic AI Features
+          <div className="text-satoshi text-sm new-lg:text-base text-primary font-system-bold text-center">
+            Unlock AI Magic Features
           </div>
-          <div className="flex justify-center px-2">
+          <div className="flex justify-center px-space-02">
             <CustomButton variant="primary" text="Upgrade" className="w-[8.875rem]" />
           </div>
         </div>

@@ -1,0 +1,49 @@
+/* @theme {
+  --color-dark-bg: #040508;
+  --color-dark-text: #ffffff;
+  --color-dark-card-bg: #10151f;
+  --color-dark-card-border: #1c212a;
+  --color-dark-text-secondary: #a6a6a6;
+  --color-dark-bg-special: linear-gradient(33.04deg, #06090e 40.12%, #0c111e 80%);
+  --color-dark-icon: #ffffff;
+  --color-dark-bg-card-pattern: url('/assets/images/gradient-background.svg');
+  --color-dark-icon-secondary: #ffffff;
+  --color-dark-button-tertiary: #1c212a;
+  --color-dark-button-secondary: #1c212a;
+
+  --color-light-bg: #ffffff;
+  --color-light-text: #000000;
+  --color-light-card-bg: #eae8ea;
+  --color-light-card-border: #c5c4c4;
+  --color-light-text-secondary: #8c8a8c;
+  --color-light-bg-special: #ffffff;
+  --color-light-icon: #000000;
+  --color-light-bg-card-pattern: #eae8ea;
+  --color-light-icon-secondary: #8c8a8c;
+  --color-light-button-tertiary: #c5c4c4;
+  --color-light-button-secondary: #c3c2c1;
+} */
+
+@layer base {
+  :root {
+    --color-bg-primary: #040508;
+    --color-text-primary: #ffffff;
+    --color-card-bg: #10151f;
+    --color-card-border: #1c212a;
+    --color-text-secondary: #a6a6a6;
+    --color-bg-special: linear-gradient(33.04deg, #06090e 40.12%, #0c111e 80%);
+    --color-icon-primary-color: #ffffff;
+    --color-button-secondary-color: #1c212a;
+  }
+
+  [data-theme='light'] {
+    --color-bg-primary: #ffffff;
+    --color-text-primary: #000000;
+    --color-card-bg: #eae8ea;
+    --color-card-border: #c5c4c4;
+    --color-text-secondary: #8c8a8c;
+    --color-bg-special: #ffffff;
+    --color-icon-primary-color: #8c8a8c;
+    --color-button-secondary-color: #c5c4c4;
+  }
+}

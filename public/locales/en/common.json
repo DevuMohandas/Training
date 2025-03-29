@@ -1,0 +1,17 @@
+{
+  "upgrade_Card_Title": "Unlock AI Magic Features",
+  "upgrade_Button_text": "Upgrade",
+  "upload_image": "Upload Image",
+  "upload": "Upload",
+  "image_rules": "Supports JPG and PNG up to 5MB",
+  "prompt_box_title": "Prompt",
+  "negative_prompt_title": "Negative Prompt",
+  "variants": "Variants",
+  "generate_button_title": "Generate",
+  "jewels_unit": "This will use 12 jewels",
+  "lite_mode": "Lite Mode",
+  "magic_mode": "Magic Mode",
+  "prompt_mode": "Prompt Mode",
+  "template_mode": "Template Mode",
+  "category_mode": "Category Mode"
+}

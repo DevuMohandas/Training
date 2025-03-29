@@ -2,34 +2,37 @@ import { CloseVector } from '@/assets/OtherIcons';
 import React, { useState } from 'react';
 
 type PromptMenuOptionProps = {
+  key: number;
+  id: number;
   option: string;
-  onSelect: (prompt: string) => void;
-  onRemove: (prompt: string) => void;
+  onSelect: (id: number) => void;
+  onRemove: (id: number) => void;
 };
 
-const PromptMenuOption = ({ option, onSelect, onRemove }: PromptMenuOptionProps) => {
+const PromptMenuOption = ({ id, option, onSelect, onRemove }: PromptMenuOptionProps) => {
   const [isSelected, setIsSelected] = useState(false);
 
   const handleSelect = () => {
     setIsSelected(true);
-    onSelect(option);
+    onSelect(id);
+    console.warn(id, option);
   };
 
   const handleRemove = (e: React.MouseEvent) => {
     e.stopPropagation();
     setIsSelected(false);
-    onRemove(option);
+    onRemove(id);
   };
 
   return (
     <button
       type="button"
       onClick={handleSelect}
-      className={`text-primary font-satoshi mb-[1.25rem] p-[1px] cursor-pointer
-      text-[0.5rem] rounded-[0.25rem] ${isSelected ? 'bg-gradient-main' : 'bg-[#1C212A]'}`}
+      className={`text-primary font-satoshi p-space-0 my-space-02 cursor-pointer
+      text-xxs rounded-radius-xs ${isSelected ? 'bg-gradient-main' : 'bg-[#1C212A]'}`}
     >
-      <div className={`flex justify-center w-full h-full bg-card rounded-[0.25rem] py-0.5 ${isSelected && 'gap-1.5'}`}>
-        {option}
+      <div className={`flex justify-center w-full h-full bg-card rounded-radius-xs py-space-0 px-space-01 ${isSelected && 'gap-space-02'}`}>
+        <div className="text-primary text-xxs font-system-light">{option}</div>
         {isSelected && (
           <button type="button" onClick={handleRemove}><CloseVector className="color-icon w-[0.85rem] h-[0.85rem] cursor-pointer" /></button>
         )}
@@ -39,3 +42,4 @@ const PromptMenuOption = ({ option, onSelect, onRemove }: PromptMenuOptionProps)
 };
 
 export default PromptMenuOption;
+// mb-[1.25rem]

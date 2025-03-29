@@ -11,9 +11,9 @@ const RandomPromptWithTooltip = ({ heading, description, icon }: TooltipProps) =
   return (
     <Tooltip
       title={(
-        <div className="flex flex-col gap-1">
-          <div className="text-center font-bold text-[0.875rem]">{heading}</div>
-          <div className="text-center font-normal text-[0.625rem]">{description}</div>
+        <div className="flex flex-col gap-space-01">
+          <div className="text-center font-system-bold text-base">{heading}</div>
+          <div className="text-center font-system-regular text-xs">{description}</div>
         </div>
       )}
       placement="top"

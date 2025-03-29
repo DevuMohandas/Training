@@ -1,0 +1,36 @@
+@theme {
+  --text-xxs: 8px;
+  --text-xs: 10px;
+  --text-sm: 12px;
+  --text-base: 14px;
+  --text-md: 16px;
+  --text-lg: 20px;
+  --text-xl: 24px;
+  --text-2xl: 28px;
+  --text-3xl: 32px;
+  --text-4xl: 36px;
+  --text-5xl: 41px;
+  --text-6xl: 48px;
+  --text-7xl: 54px;
+  --text-8xl: 60px;
+
+  --font-weight-system-light: 300;
+  --font-weight-system-regular: 400;
+  --font-weight-system-medium: 500;
+  --font-weight-system-semibold: 600;
+  --font-weight-system-bold: 700;
+  --font-weight-system-extrabold: 800;
+
+  --leading-tightest: 10px; /* Ultra-tight */
+  --leading-tighter: 12px; /* Tighter */
+  --leading-tight: 14px; /* Slightly tight */
+  --leading-normal: 16px; /* Default */
+  --leading-relaxed: 18px; /* Balanced */
+  --leading-loose: 22px; /* Slightly loose */
+  --leading-looser: 26px; /* Looser */
+  --leading-widest: 32px; /* Wide */
+  --leading-ultra: 40px; /* Extra wide */
+  --leading-max: 48px; /* Maximum spacing */
+  --leading-huge: 56px; /* Huge spacing */
+  --leading-massive: 64px;
+}

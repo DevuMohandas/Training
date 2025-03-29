@@ -12,7 +12,7 @@ const TopBar = () => {
           src={ICONS.ENVOGUE_LOGO}
           width={25}
           height={32}
-          className="ml-[1.188rem] mt-[1.188rem] object-contain"
+          className="ml-space-06 mt-space-06 object-contain"
         />
       </div>
       <div className="flex justify-center items-center gap-[1.25rem] mr-[1.188rem]">

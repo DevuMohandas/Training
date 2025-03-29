@@ -1,9 +1,9 @@
 'use client';
-
 import { promptWithImage } from '@/constants/EnvogueaiConstants';
 import { useEffect, useState } from 'react';
 import ImageAnimationCard from '../atoms/ImageAnimationCard';
 import ImageLoaderSection from '../molecules/ImageLoaderSection';
+import ImageViewCard from '../molecules/ImageViewCard';
 import LiteModeTopBar from '../molecules/LiteModeTopBar';
 import PromptModeSection from '../organisms/PromptModeSection';
 import PromptModeSidePanel from '../organisms/PromptModeSidePanel';
@@ -14,14 +14,15 @@ const EnvoguePromptmode = () => {
   const [userHistoryArray, setUserHistoryArray] = useState<{ id: number; prompt: string; images: string[]; timestamp: Date }[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTyping, setIsTyping] = useState(false);
-  const [generate, setGenerate] = useState(false);
-  const [generateImages, setGeneratedImages] = useState<string[]>([]);
+  const [generatedImages, setGeneratedImages] = useState<string[]>([]);
   const [userPrompt, setUserPrompt] = useState('');
   const [categorizedHistory, setCategorizedHistory] = useState({
     todayHistory: [] as { id: number; prompt: string }[],
     last7DaysHistory: [] as { id: number; prompt: string }[],
     last30DaysHistory: [] as { id: number; prompt: string }[],
   });
+  const [isLoading, setIsLoading] = useState(false);
+  const [newDesign, setNewDesign] = useState(false);
 
   const updateUserHistory = () => {
     setUserHistoryArray(prevHistory => [
@@ -29,7 +30,7 @@ const EnvoguePromptmode = () => {
       {
         id: prevHistory.length + 1,
         prompt: userPrompt,
-        images: generateImages,
+        images: generatedImages,
         timestamp: new Date(),
       },
     ]);
@@ -65,10 +66,10 @@ const EnvoguePromptmode = () => {
   }, [userHistoryArray]);
 
   useEffect(() => {
-    if (generateImages.length > 0 && userPrompt) {
+    if (generatedImages.length > 0 && userPrompt) {
       updateUserHistory();
     }
-  }, [generateImages]);
+  }, [generatedImages]);
 
   useEffect(() => {
     if (isTyping) {
@@ -81,20 +82,24 @@ const EnvoguePromptmode = () => {
   }, [isTyping]);
 
   useEffect(() => {
-    console.warn(userPrompt);
+    setIsLoading(false);
   }, [userPrompt]);
 
   return (
     <div>
       <PromptmodeTemplate
+        // cardVisible={cardVisible}
+        imageViewCard={<ImageViewCard src="assets/images/j1.svg" prompt={userPrompt} negativePrompt="This is Negative Prompt Section." />}
         topbar={<LiteModeTopBar />}
         sidebar={<SideBar />}
-        sidepanel={<PromptModeSidePanel categorizedHistory={categorizedHistory} />}
+        sidepanel={<PromptModeSidePanel setNewDesign={setNewDesign} categorizedHistory={categorizedHistory} setIsLoading={setIsLoading} />}
         animationcard={
-          generate ? <ImageLoaderSection setLastGeneratedImages={setGeneratedImages} variants={4} /> : <ImageAnimationCard src={promptWithImage[currentIndex]?.imageUrl} />
+          isLoading && userPrompt
+            ? <ImageLoaderSection setLastGeneratedImages={setGeneratedImages} variants={4} />
+            : <ImageAnimationCard src={promptWithImage[currentIndex]?.imageUrl} />
         }
         promptsection={
-          <PromptModeSection autoprompt={promptWithImage[currentIndex]?.prompt} setIsTyping={setIsTyping} setGenerate={setGenerate} setUserPrompt={setUserPrompt} />
+          <PromptModeSection autoprompt={promptWithImage[currentIndex]?.prompt} setIsTyping={setIsTyping} setIsLoading={setIsLoading} setUserPrompt={setUserPrompt} />
         }
       />
     </div>

@@ -1,0 +1,15 @@
+@theme {
+  --radius-radius-smallest: 2px;
+  --radius-radius-xs: 4px;
+  --radius-radius-s: 6px;
+  --radius-radius-md: 8px;
+  --radius-radius-lg: 12px;
+  --radius-radius-xl: 16px;
+  --radius-radius-2xl: 20px;
+  --radius-radius-3xl: 24px;
+  --radius-radius-4xl: 32px;
+  --radius-radius-5xl: 40px;
+  --radius-radius-6xl: 48px;
+  --radius-radius-7xl: 56px;
+  --radius-radius-8xl: 64px;
+}

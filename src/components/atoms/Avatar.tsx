@@ -17,12 +17,14 @@ const Avatar = ({ name, image }: AvatarProps) => {
     : 'User';
 
   return (
-    <div className="flex justify-center items-center w-[2.875rem] h-[2.875rem] rounded-full bg-gradient-to-r from-[#61A6F2] via-[#C9649A] to-[#F28E4C] overflow-hidden">
+    <div className="p-space-03 flex justify-center items-center p-space- rounded-full bg-gradient-to-r from-[#61A6F2] via-[#C9649A] to-[#F28E4C] overflow-hidden">
       {image
         ? <Image alt={name || 'User Avatar'} src={image} width={100} height={100} className="w-[2.5rem] h-[2.5rem] rounded-full" />
-        : <div className="text-[#FFFFFF] font-[700] text-[1rem]">{initials && initials.toUpperCase()}</div>}
+        : <div className="text-[#FFFFFF] font-bold text-base">{initials && initials.toUpperCase()}</div>}
     </div>
   );
 };
 
 export default Avatar;
+
+// w-[2.875rem] h-[2.875rem]
