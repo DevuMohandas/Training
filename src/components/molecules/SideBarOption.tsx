@@ -9,14 +9,14 @@ type SideBarOptionProps = {
   customClassName?: string;
 };
 
-const SideBarOption: React.FC<SideBarOptionProps> = ({ icon, text, isActive, onClick, customClassName }) => {
+const SideBarOption = ({ icon, text, isActive, onClick, customClassName }: SideBarOptionProps) => {
   return (
     <button
       type="button"
       onClick={onClick}
       aria-label={text}
       className={`flex flex-col justify-center items-center w-[4.56rem] h-[6.490rem] gap-space-03 cursor-pointer 
-        ${isActive ? 'bg-[url("/assets/images/Frame_7808.svg")]' : ''}`}
+        ${isActive && 'bg-[url("/assets/images/sidebargradient.svg")]'}`}
     >
       <div className="flex justify-center">
         {typeof icon === 'string' ? <Image src={icon} alt="icon" width={0} height={0} /> : icon}

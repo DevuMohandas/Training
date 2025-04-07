@@ -4,13 +4,14 @@ import GradientBorderButton from '../atoms/GradientBorderButton';
 
 type ConfirmationPopupProps = {
   title: string;
-  subtitle: string;
-  buttonText?: string;
+  subtitle?: string;
+  buttonText1?: string;
+  buttonText2?: string;
   onConfirm?: () => void;
   onCancel?: () => void;
 };
 
-const ConfirmationPopup: React.FC<ConfirmationPopupProps> = ({ title, subtitle, buttonText, onConfirm, onCancel }) => {
+const ConfirmationPopup: React.FC<ConfirmationPopupProps> = ({ title, subtitle, buttonText1, buttonText2, onConfirm, onCancel }) => {
   return (
     <div className="flex justify-center items-center border card-border shadow-[0px_0px_10.3px_0px_#211A30] rounded-[19px] bg-special
     xl:py-[3.5rem] xl:px-[3.5rem] lg:py-[2.5rem] lg:px-[2.5rem] md:py-[2rem] md:px-[2rem] sm:py-[1.5rem] sm:px-[1.5rem] py-[1rem] px-[1rem]"
@@ -19,8 +20,8 @@ const ConfirmationPopup: React.FC<ConfirmationPopupProps> = ({ title, subtitle, 
         <div className="text-center text-primary font-bold text-[20px]">{title}</div>
         <div className="text-center text-secondary text-[20px] font-normal">{subtitle}</div>
         <div className="flex gap-4 justify-center">
-          <CustomButton variant="primary" text={buttonText} onClick={onConfirm} className="w-[100%]" />
-          <GradientBorderButton text="Cancel" onClick={onCancel} />
+          {onConfirm && <CustomButton variant="primary" text={buttonText1} onClick={onConfirm} className="w-full" />}
+          {onCancel && <GradientBorderButton text={buttonText2} onClick={onCancel} /> }
         </div>
       </div>
     </div>

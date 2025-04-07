@@ -1,4 +1,4 @@
-import { defineConfig } from 'drizzle-kit';
+import { defineConfig } from 'drizzle-kit'; // ✅ valid for your version
 
 export default defineConfig({
   out: './migrations',

@@ -1,33 +1,26 @@
 import Image from 'next/image';
-// import React, { useState } from 'react';
 
 type GradientBorderButtonProps = {
-  text: string;
+  text: string | React.ReactNode;
   icon?: string;
   onClick?: () => void;
   variant?: 'primary' | 'secondary';
+  className?: string;
 };
 
-const GradientBorderButton = ({ text, onClick, icon, variant }: GradientBorderButtonProps) => {
-  // const [isClicked, setIsClicked] = useState(false);
-  const handleClick = () => {
-    // setIsClicked(true);
-    onClick?.();
-    // setTimeout(() => setIsClicked(false), 300);
-  };
+const GradientBorderButton = ({ text, onClick, icon, variant, className }: GradientBorderButtonProps) => {
   return (
     <button
       type="button"
-      onClick={handleClick}
-      className={`bg-gradient-main p-space-0 h-[2.5rem] w-full cursor-pointer relative
-         ${variant === 'secondary' ? 'rounded-radius-xl h-[3.25rem]' : 'rounded-radius-s'}`}
+      onClick={onClick}
+      className={`bg-gradient-main p-[1px] cursor-pointer relative rounded-radius-s ${className}`}
     >
       <div
-        className={`w-full h-full text-primary text-sm new-md:text-sm 
+        className={`w-full h-full text-primary text-sm new-md:text-sm rounded-radius-s
           font-bold flex justify-center items-center gap-space-01 px-space-02 transition-colors duration-300
-          ${variant === 'secondary'
-      ? 'ternary-btn-color rounded-radius-xl'
-      : 'bg-card rounded-radius-s'}
+          ${variant === 'primary'
+      ? 'bg-card'
+      : 'bg-body'}
       `}
       >
         {icon && <Image alt="icon" src={icon} width={12} height={12} />}
@@ -38,3 +31,9 @@ const GradientBorderButton = ({ text, onClick, icon, variant }: GradientBorderBu
 };
 
 export default GradientBorderButton;
+
+// ? 'ternary-btn-color rounded-radius-xl'
+// make radius, width and height dynamic based on class recieved.
+// h-[3.25rem] for secondary(removed)
+// recieve custom classes as props
+// ${variant === 'secondary' ? 'rounded-radius-xl' : 'rounded-radius-s'} ${width} ${height}

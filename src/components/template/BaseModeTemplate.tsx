@@ -9,7 +9,7 @@ type BaseModeTemplateProps = {
 
 const BaseModeTemplate = ({ children, showSidebar = true }: BaseModeTemplateProps) => {
   return (
-    <div className="flex flex-col h-screen">
+    <div className="flex flex-col h-screen bg-body">
       <LiteModeTopBar />
       <div className="flex h-full w-full">
         { showSidebar && <SideBar /> }

@@ -1,3 +1,4 @@
+'use client';
 import { AIImageCarousel } from '@/constants/EnvogueaiConstants';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
@@ -9,32 +10,36 @@ type AIImage = {
 
 type ImageCarouselProps = {
   variants: number | null;
-  setSelectedVariant: (src: string) => void;
-  generatedImage: (src: string) => void;
-  imageToDelete: string;
+  setSelectedImage: (src: string) => void;
+  setFirstImage: (src: string) => void;
+  deletedImage: string;
 };
 
-const ImageCarousel = ({ variants, setSelectedVariant, imageToDelete }: ImageCarouselProps) => {
+const ImageCarousel = ({ variants, setSelectedImage, setFirstImage, deletedImage }: ImageCarouselProps) => {
   const [selectedImageId, setSelectedImageId] = useState<number | null>(null);
   const [imageList, setImageList] = useState<AIImage[]>([]);
+  const [deletedImages, setDeletedImages] = useState<string[]>([]);
 
-  useEffect (() => {
+  useEffect(() => {
     if (variants && variants > 0) {
-      setImageList(AIImageCarousel.slice(0, variants));
+      let newImageList = AIImageCarousel.slice(0, variants);
+      newImageList = newImageList.filter(image => !deletedImages.includes(image.src));
+      setImageList(newImageList);
+      setFirstImage(newImageList[0]?.src ?? '');
     } else {
       setImageList([]);
     }
-  }, [variants]);
+  }, [variants, setFirstImage, deletedImages]);
 
   useEffect(() => {
-    if (imageToDelete) {
-      setImageList(prevList => prevList.filter(img => img.src !== imageToDelete));
+    if (deletedImage) {
+      setDeletedImages(prev => [...prev, deletedImage]);
     }
-  }, [imageToDelete]);
+  }, [deletedImage]);
 
-  const handleImageClick = (id: number, src: string) => {
+  const handleClick = (id: number, src: string) => {
     setSelectedImageId(id);
-    setSelectedVariant(src);
+    setSelectedImage(src);
   };
 
   return (
@@ -43,8 +48,8 @@ const ImageCarousel = ({ variants, setSelectedVariant, imageToDelete }: ImageCar
         <div key={obj.id}>
           <button
             type="button"
-            onClick={() => handleImageClick(obj.id, obj.src)}
-            className={`rounded-radius-smallest p-[1px] cursor-pointer ${selectedImageId === obj.id ? 'scale-110 bg-gradient-to-r from-[#8B2BE2] to-[#4D02E0]' : 'bg-[#1C212A]'}`}
+            onClick={() => handleClick(obj.id, obj.src)}
+            className={`rounded-radius-smallest p-space-0 cursor-pointer ${selectedImageId === obj.id ? 'scale-110 bg-gradient-to-r from-[#8B2BE2] to-[#4D02E0]' : 'bg-[#1C212A]'}`}
           >
             <Image src={obj.src} width={98} height={84} alt="variant" className="rounded-radius-smallest" />
           </button>

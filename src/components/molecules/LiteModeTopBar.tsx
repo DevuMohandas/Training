@@ -1,7 +1,6 @@
 import { EnvogueLogoIcon } from '@/assets/TopBarIcons';
 import Diamonds from '../atoms/Diamonds';
 import ThemeToggleButton from '../atoms/ThemeToggleButton';
-// import LangSwitcher from './LangSwitcher';
 
 const LiteModeTopBar = () => {
   return (
@@ -11,7 +10,6 @@ const LiteModeTopBar = () => {
       </div>
       <div className="flex items-center gap-space-03">
         <div><Diamonds diamonds={50} /></div>
-        {/* <div><LangSwitcher /></div> */}
         <div><ThemeToggleButton /></div>
       </div>
     </div>

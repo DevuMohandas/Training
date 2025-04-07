@@ -88,7 +88,7 @@ const EnvoguePromptmode = () => {
   return (
     <div>
       <PromptmodeTemplate
-        // cardVisible={cardVisible}
+        cardVisible={false}
         imageViewCard={<ImageViewCard src="assets/images/j1.svg" prompt={userPrompt} negativePrompt="This is Negative Prompt Section." />}
         topbar={<LiteModeTopBar />}
         sidebar={<SideBar />}
@@ -96,7 +96,7 @@ const EnvoguePromptmode = () => {
         animationcard={
           isLoading && userPrompt
             ? <ImageLoaderSection setLastGeneratedImages={setGeneratedImages} variants={4} />
-            : <ImageAnimationCard src={promptWithImage[currentIndex]?.imageUrl} />
+            : <ImageAnimationCard src={promptWithImage[currentIndex]?.imageUrl} variant="promptpage" />
         }
         promptsection={
           <PromptModeSection autoprompt={promptWithImage[currentIndex]?.prompt} setIsTyping={setIsTyping} setIsLoading={setIsLoading} setUserPrompt={setUserPrompt} />

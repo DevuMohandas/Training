@@ -1,5 +1,6 @@
 import useDownloadImage from '@/hooks/useDownloadImage';
 import Image from 'next/image';
+import { useEffect, useRef } from 'react';
 import { HOVER_ICONS } from '../../constants/EnvogueaiConstants';
 import GradientBorderButton from '../atoms/GradientBorderButton';
 import ViewPrompt from '../atoms/ViewPrompt';
@@ -14,6 +15,20 @@ type ImageViewCardProps = {
 
 const ImageViewCard: React.FC<ImageViewCardProps> = ({ src, prompt, negativePrompt, handleDeletedImage, setCardVisible }) => {
   const { downloadImage } = useDownloadImage();
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (cardRef.current && !cardRef.current.contains(e.target as Node)) {
+        setCardVisible(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside); // Triggers when mouse button is pressed down
+
+    return () => { // ensures that when component unmounts (or when isMenuOpen becomes false), the event listener is removed.
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [setCardVisible]);
 
   const deleteImage = () => {
     if (handleDeletedImage) {
@@ -27,7 +42,7 @@ const ImageViewCard: React.FC<ImageViewCardProps> = ({ src, prompt, negativeProm
   };
 
   return (
-    <div className="flex flex-col rounded-radius-4xl bg-special border-2 card-border px-space-04 pt-space-04 pb-space-12 shadow-[0px_0px_20px_4px_rgba(28,33,42,0.7)] max-w-[58.75rem]">
+    <div ref={cardRef} className="flex flex-col rounded-radius-4xl bg-special border-2 card-border px-space-04 pt-space-04 pb-space-12 shadow-[0px_0px_20px_4px_rgba(28,33,42,0.7)] max-w-[58.75rem]">
       <button type="button" onClick={handleCloseCard} className="flex justify-end"><Image alt="close-vector" src="/assets/icons/close-vector.svg" width={22.47} height={22.47} /></button>
       <div className="flex gap-space-04">
         <div className="flex items-center rounded-radius-xl overflow-hidden max-w-[28.75rem] aspect-[5/6] relative">

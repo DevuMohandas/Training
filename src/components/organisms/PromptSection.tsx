@@ -20,8 +20,6 @@ const PromptSection = ({ toggleMenu, autoPrompt, setIsTyping, setUserPrompt, sel
   const [promptValue, setPromptValue] = useState<string | string[]>('');
   const [userTyping, setUserTyping] = useState(false);
 
-  console.warn('use typing:', userTyping);
-
   useEffect(() => {
     if ((selectedPrompts || []).length > 0) {
       console.warn(selectedPrompts);
@@ -72,33 +70,26 @@ const PromptSection = ({ toggleMenu, autoPrompt, setIsTyping, setUserPrompt, sel
     setPromptOpen(true);
   };
 
-  // const handleFocus = () => {
-  //   if (userTyping === false) {
-  //     setUserTyping(true);
-  //   }
-  //   setPromptValue('');
-  // };
-
   return (
     <div className="flex flex-col justify-center bg-card border-[1px] px-space-03 py-space-02
     card-border rounded-radius-xl h-full max-h-[11.1rem] "
     >
       <div className="flex justify-between w-full">
         <div className="flex gap-space-02">
-          <button type="button" onClick={() => setPromptOpen(prev => !prev)}>
+          <button aria-label="arrow-button" type="button" onClick={() => setPromptOpen(prev => !prev)}>
             {promptOpen ? <DownArrowIcon className="color-icon" /> : <RightArrowIcon className="color-icon" /> }
           </button>
           <div className="text-primary text-md font-system-bold">Prompt</div>
         </div>
         <div className="flex justify-center items-center gap-space-04">
-          <button onClick={generateRandomPrompt} type="button">
+          <button aria-label="random-prompt-button" onClick={generateRandomPrompt} type="button">
             <RandomPromptWithTooltip
               heading="Random Prompt"
               description="Generate random ideas. Spark your creativity with AI suggestions."
               icon={<RandomPromptIcon className="color-icon-secondary" />}
             />
           </button>
-          <button type="button" className="cursor-pointer" onClick={toggleMenu}>
+          <button aria-label="prompt-menu-button" type="button" className="cursor-pointer" onClick={toggleMenu}>
             <PromptModeIcon className="color-icon w-[1.188rem] h-[1.188rem]" />
           </button>
         </div>
@@ -110,7 +101,6 @@ const PromptSection = ({ toggleMenu, autoPrompt, setIsTyping, setUserPrompt, sel
             id="prompt-textarea"
             value={promptValue}
             onChange={handleInput}
-            // onFocus={handleFocus}
             className="bg-transparent border-none text-secondary text-sm
             leading-normal w-full resize-none outline-none font-system-bold p-space-02 overflow-auto"
             rows={1}

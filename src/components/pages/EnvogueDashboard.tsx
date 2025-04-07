@@ -1,8 +1,6 @@
 import WelcomeCard from '@/components/atoms/WelcomeCard';
-import TopBar from '@/components/molecules/TopBar';
 import CenterNavBar from '@/components/organisms/CenterNavBar';
 import RowPost from '@/components/organisms/RowPost';
-import SideBar from '@/components/organisms/SideBar';
 import DashboardTemplate from '../template/DashboardTemplate';
 
 const EnvogueDashboard = () => {
@@ -16,13 +14,13 @@ const EnvogueDashboard = () => {
 
   return (
     <DashboardTemplate
-      topBar={<TopBar />}
       welcomeCard={<WelcomeCard text="Craft Your Dream Jewellery: Design the Perfect Piece" />}
       centerNavbar={<CenterNavBar />}
       rowPost={<RowPost productList={Recents} welcomeLine="Recents" />}
-      sideBar={<SideBar />}
     />
   );
 };
 
 export default EnvogueDashboard;
+
+// improve rowpost to rowpost section to recieve multiple rowposts.

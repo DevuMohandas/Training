@@ -9,15 +9,17 @@ const UpgradeNoticeCard = () => {
     >
       <div className="w-full bg-card rounded-radius-xl">
         <div className="flex flex-col justify-center items-center
-         rounded-[1rem] card-bg-special p-space-02 gap-space-03 pt-space-03 pb-space-04 text-base"
+         rounded-radius-xl bg-card p-space-02 gap-space-03 pt-space-03 pb-space-04 text-base"
         >
           <Image
             alt="icon"
             src={ICONS.SPARKLE_ICON}
             width={24}
             height={24}
+            loading="eager"
+            priority={false}
           />
-          <div className="text-satoshi text-sm new-lg:text-base text-primary font-system-bold text-center">
+          <div className="text-sm new-lg:text-base text-primary font-system-bold text-center">
             Unlock AI Magic Features
           </div>
           <div className="flex justify-center px-space-02">
@@ -32,3 +34,4 @@ const UpgradeNoticeCard = () => {
 export default UpgradeNoticeCard;
 
 // gap-[0.813rem] pt-[0.75rem] pb-[1.188rem]  className="w-[9.875rem]"
+// card-bg-special

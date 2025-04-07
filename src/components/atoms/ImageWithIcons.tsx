@@ -1,7 +1,5 @@
 import { HOVER_ICONS } from '@/constants/EnvogueaiConstants';
-// import { useCardVisibility } from '@/hooks/useCardVisibility';
 import useDownloadImage from '@/hooks/useDownloadImage';
-// import { usePopup } from '@/hooks/usePopup';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import React from 'react';

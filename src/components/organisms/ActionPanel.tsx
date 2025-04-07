@@ -8,11 +8,10 @@ import { useState } from 'react';
 import VarientsButton from '../atoms/VarientsButton';
 import PromptMenu from '../molecules/PromptMenu';
 import UpgradeNoticeCard from '../molecules/UpgradeNoticeCard';
-// import { PROMPTMENU_OPTIONS } from '@/constants/EnvogueaiConstants';
 
 type ActionPanelProps = {
   onVariantSelect: (variant: number | null) => void;
-  prompt: string;
+  prompt?: string;
   negativePrompt?: string;
 };
 

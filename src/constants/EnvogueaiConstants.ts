@@ -18,7 +18,7 @@ export const ICONS = {
   DIAMOND_ICON: '/assets/icons/diamonds.svg',
   ENVOGUE_LOGO: '/assets/icons/envogue_logo.svg',
   UPGRADE_LOGO: '/assets/icons/premiumcrown_icon.svg',
-  SPARKLE_ICON: '/assets/icons/sparkle-vector.svg',
+  SPARKLE_ICON: '/assets/icons/sparkle.svg',
 };
 
 export const HOVER_ICONS = {
@@ -108,3 +108,18 @@ export const AIImageCarousel = [
   { id: 3, src: '/assets/images/ring2.jpg' },
   { id: 4, src: '/assets/images/ring3.jpg' },
 ];
+
+export const PopupOptions = [
+  { id: 1, label: 'Settings', icon: '/assets/icons/settings-icon.svg' },
+  { id: 2, label: 'Terms and Use', icon: '/assets/icons/terms-icon.svg' },
+  { id: 3, label: 'Help & Feedback', icon: '/assets/icons/feedback-icon.svg' },
+  { id: 4, label: 'Logout', icon: '/assets/icons/logout-icon.svg' },
+];
+
+export const userData = {
+  firstname: 'Devu',
+  lastname: 'Mohandas',
+  email: 'dm2002@gmail.com',
+  password: 'devu1234',
+  profileImage: '/assets/images/Elsa_DP.png',
+};

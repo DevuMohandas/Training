@@ -42,6 +42,7 @@ const ImageStack = ({ title, imageList, setPrompt, handleDeletedImage }: ImageSt
               key={index}
               handleDeletedImage={handleDeletedImage}
               // setEditMode={setEditMode}
+              variant="primary"
             />
           )
         ))}

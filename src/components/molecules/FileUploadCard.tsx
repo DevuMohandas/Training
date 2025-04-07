@@ -1,5 +1,4 @@
 'use client';
-// import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import React, { useRef } from 'react';
 import CustomButton from '../atoms/CustomButton';
@@ -7,7 +6,6 @@ import CustomButton from '../atoms/CustomButton';
 const FileUploadCard = () => {
   const FileInputRef = useRef<HTMLInputElement>(null);
   const [preview, setPreview] = React.useState<string | null>(null);
-  // const t = useTranslations();
   // const [error, setError] = React.useState<string | null>(null);
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -59,6 +57,3 @@ const FileUploadCard = () => {
 };
 
 export default FileUploadCard;
-
-// py-[3.688rem] max-w-[19.563rem] h-[12.125rem]
-// <div className="text-center text-[0.875rem] text-secondary font-bold">Supports JPG and PNG up to 5MB</div>

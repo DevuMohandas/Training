@@ -25,6 +25,7 @@ const ThemeToggleButton = () => {
   return (
     <button
       type="button"
+      aria-label="theme-Toggle-Button"
       onClick={toggleTheme}
       className="flex justify-center items-center w-[2rem] h-[1.875rem] rounded-radius-md bg-card cursor-pointer"
     >

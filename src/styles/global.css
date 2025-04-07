@@ -2,9 +2,12 @@
 
 @import './design-tokens/typography.css';
 @import './design-tokens/borderRadius.css';
-/* @import './design-tokens/color.css'; */
 @import './design-tokens/screen.css';
 @import './design-tokens/spacing.css';
+
+body {
+  font-family: 'satoshi', sans-serif;
+}
 
 :root {
   --bg: #040508;
@@ -32,10 +35,6 @@
   --iconSecondary: #8c8a8c;
   --buttonTertiary: #c5c4c4;
   --buttonSecondary: #c3c2c1;
-}
-
-body {
-  font-family: 'satoshi', sans-serif;
 }
 
 :root {

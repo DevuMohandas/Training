@@ -1,4 +1,3 @@
-// 'use client';
 import { DownArrowIcon, RightArrowIcon } from '@/assets/OtherIcons';
 import { useEffect, useState } from 'react';
 
@@ -52,5 +51,3 @@ const NegativePromptSection = ({ setPrompt, displayNegativePrompt }: NegativePro
 };
 
 export default NegativePromptSection;
-
-// max-w-[19.56rem]

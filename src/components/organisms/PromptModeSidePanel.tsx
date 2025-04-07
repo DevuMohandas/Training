@@ -1,4 +1,3 @@
-import { useTranslations } from 'next-intl';
 import GradientBorderButton from '../atoms/GradientBorderButton';
 import TimeLineSection from '../molecules/TimeLineSection';
 import UpgradeNoticeCard from '../molecules/UpgradeNoticeCard';
@@ -14,7 +13,6 @@ type PromptModeSidePanelProps = {
 };
 
 const PromptModeSidePanel = ({ categorizedHistory, setIsLoading, setNewDesign }: PromptModeSidePanelProps) => {
-  const t = useTranslations();
   const handleNewDesign = () => {
     setIsLoading(false);
     setNewDesign(true);
@@ -24,7 +22,7 @@ const PromptModeSidePanel = ({ categorizedHistory, setIsLoading, setNewDesign }:
     <div className="bg-special px-space-06 py-space-08 w-[13rem] md:w-[15rem] lg:w-[18rem] xl:w-[22.188rem] h-full overflow-auto custom-scrollbar">
       <div className="flex flex-col gap-space-14 flex-1">
         <div className="flex flex-col gap-space-10">
-          <GradientBorderButton variant="secondary" text={t('new_design')} onClick={handleNewDesign} />
+          <GradientBorderButton text="+ New Design" variant="primary" onClick={handleNewDesign} className="h-[3.25rem]" />
           <UpgradeNoticeCard />
         </div>
         <div className="flex flex-col gap-space-14">
